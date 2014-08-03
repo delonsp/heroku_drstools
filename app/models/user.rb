@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
+  def name
+    [first_name, last_name].compact.join(' ')
+  end
+
 end
