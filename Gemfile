@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'thin'
 gem 'will_paginate', '~> 3.0'
 gem 'i18n', '~> 0.6.11'
+gem 'rails-i18n'
 
 group :development do
   gem 'better_errors'
