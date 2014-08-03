@@ -16,6 +16,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'thin'
 gem 'will_paginate', '~> 3.0'
+gem 'i18n', '~> 0.6.11'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

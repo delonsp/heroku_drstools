@@ -253,6 +253,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   hub
+  i18n (~> 0.6.11)
   jbuilder (~> 2.0)
   jquery-rails
   launchy
