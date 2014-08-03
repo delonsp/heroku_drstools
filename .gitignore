@@ -77,3 +77,13 @@ pickle-email-*.html
 # Environment files that may contain sensitive data
 .env
 .powenv
+
+
+# PERSONALIZED - Ignore other unneeded files.
+
+doc/
+*~
+.project
+.secret
+*.sublime-project
+*.sublime-workspace
