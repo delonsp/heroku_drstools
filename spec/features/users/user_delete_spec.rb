@@ -16,13 +16,13 @@ feature 'User delete', :devise, :js do
   #   When I delete my account
   #   Then I should see an account deleted message
   scenario 'user can delete own account' do
-    skip 'skip a slow test'
+    # skip 'skip a slow test'
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     visit edit_user_registration_path(user)
-    click_button 'Cancel my account'
+    click_button 'Cancelar minha conta'
     page.driver.browser.switch_to.alert.accept
-    expect(page).to have_content 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    expect(page).to have_content 'Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
   end
 
 end

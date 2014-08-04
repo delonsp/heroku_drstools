@@ -4,11 +4,11 @@
     <%= devise_error_messages! %>
     <div class="form-group">
       <%= f.label :primeiro_nome %>
-      <%= f.text_field :first_name, :autofocus => true, class: 'form-control' %>
+      <%= f.text_field :first_name, :autofocus => true, id: 'user_primeiro_nome', class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :sobrenome %>
-      <%= f.text_field :last_name, class: 'form-control' %>
+      <%= f.text_field :last_name, id: 'user_sobrenome', class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :email %>
@@ -16,12 +16,12 @@
     </div>
     <div class="form-group">
       <%= f.label :senha %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, id: 'user_senha', class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :confirmação_da_senha %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, id: 'user_confirmação_da_senha', class: 'form-control' %>
     </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
+     <%= f.submit 'Criar conta', :class => 'button right' %>
   <% end %>
 </div>
