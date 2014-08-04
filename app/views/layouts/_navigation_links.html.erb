@@ -7,5 +7,7 @@
   <li><%= link_to 'Nova Conta', new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
-  <li><%= link_to 'Usuários', users_path %></li>
+    <% if current_user.admin? %>
+        <li><%= link_to 'Usuários', users_path %></li>
+    <% end %>
 <% end %>
