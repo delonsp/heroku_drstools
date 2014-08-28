@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827230002) do
+ActiveRecord::Schema.define(version: 20140828145200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140827230002) do
     t.datetime "updated_at"
   end
 
+  add_index "elogs", ["patient_id", "exam_id"], name: "index_elogs_on_patient_id_and_exam_id", using: :btree
+
   create_table "exams", force: true do |t|
     t.string   "name"
     t.text     "text"
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140827230002) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
 
   create_table "patients", force: true do |t|
     t.string   "name"
@@ -43,12 +47,16 @@ ActiveRecord::Schema.define(version: 20140827230002) do
     t.datetime "updated_at"
   end
 
+  add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
+
   create_table "plogs", force: true do |t|
     t.integer  "prescription_id"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "plogs", ["patient_id", "prescription_id"], name: "index_plogs_on_patient_id_and_prescription_id", using: :btree
 
   create_table "prescriptions", force: true do |t|
     t.string   "illness"
@@ -59,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140827230002) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "prescriptions", ["user_id"], name: "index_prescriptions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
