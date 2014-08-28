@@ -11,10 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803201754) do
+ActiveRecord::Schema.define(version: 20140827230002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "elogs", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams", force: true do |t|
+    t.string   "name"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patients", force: true do |t|
+    t.string   "name"
+    t.string   "phones"
+    t.string   "email"
+    t.integer  "user_id"
+    t.string   "health_plan"
+    t.string   "health_plan_code"
+    t.string   "home_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plogs", force: true do |t|
+    t.integer  "prescription_id"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prescriptions", force: true do |t|
+    t.string   "illness"
+    t.string   "name"
+    t.text     "text"
+    t.boolean  "manipulated"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
