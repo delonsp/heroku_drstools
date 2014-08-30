@@ -6,6 +6,10 @@ describe Plog do
 
   it { should be_valid }
 
+  it { should belong_to(:prescription) }
+
+  it { should belong_to(:patient) }
+
   describe "when prescription_id is blank" do
     before { @plog.prescription_id = " " }
     it { should_not be_valid }

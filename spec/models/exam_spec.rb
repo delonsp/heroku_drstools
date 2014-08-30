@@ -9,6 +9,8 @@ describe Exam do
 
   it { should be_valid }
 
+  it { should belong_to(:user) }
+
   describe "when name is blank" do
     before { @exam.name = " " }
     it { should_not be_valid }
