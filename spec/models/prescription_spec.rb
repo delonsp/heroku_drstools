@@ -9,7 +9,7 @@ describe Prescription do
 	it { should be_valid }
 
 	it { should belong_to(:user) }
-	it { should have_many(:plogs).with_foreign_key(:prescription_id).dependent(:destroy) }
+	it { should have_many(:plogs).dependent(:destroy) }
 
 	describe "when illness is blank" do
 	    before { @prescription.illness = " " }

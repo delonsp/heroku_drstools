@@ -1,6 +1,6 @@
 class Prescription < ActiveRecord::Base
 	belongs_to :user
-	has_many :plogs, foreign_key: :prescription_id, dependent: :destroy
+	has_many :plogs, dependent: :destroy
 	validates :illness, presence: true
 	validates :name, presence: true
 	validates :text, presence: true

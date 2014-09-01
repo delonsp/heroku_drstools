@@ -10,8 +10,8 @@ describe Patient do
 
   it { should belong_to(:user) }
 
-  it { should have_many(:plogs).with_foreign_key(:patient_id).dependent(:destroy) }
-  it { should have_many(:elogs).with_foreign_key(:exam_id).dependent(:destroy) }
+  it { should have_many(:plogs).dependent(:destroy) }
+  it { should have_many(:elogs).dependent(:destroy) }
   it { should have_many(:prescriptions).through(:plogs) }
   it { should have_many(:exams).through(:elogs) }
   
