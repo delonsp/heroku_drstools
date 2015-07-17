@@ -123,13 +123,13 @@ if(isset($_SESSION['logged_in'])) {
                             
                             <div class="controls">
                                 <input type="submit" id="envioBtn" value="Enviar" class="btn btn-success" />
-
-                                <input type="submit" id="salvarDireto" value="Novo Medicamento" class="btn btn-primary" />
                             </div>
                         </div>
                         
                          
                     </form>
+                    <h3>Salvar direto sem pesquisa</h3>
+                    <input type="submit" id="salvarDireto" name="salvarDireto" value="Novo Medicamento" class="btn btn-primary" />
                 </div>
                 <div class="span6 hidden" id="secondFormRow">
                     <form class="form-horizontal" method="post" action="" id="form2">
