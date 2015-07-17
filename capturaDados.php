@@ -2,13 +2,17 @@
 
 include_once("connectMedic.php");
 
-if (isset($_POST['no']) && !empty($_POST['no'])) {
+if (isset($_POST['no']) && !empty($_POST['no']) &&
+	isset($_POST['bd']) && !empty($_POST['bd']) &&
+	isset($_POST['tabela']) && !empty($_POST['tabela'])) {
 	
 	$id = $_POST['no'];
+	$tabela = $_POST['tabela'];
+	$bd = $_POST['bd'];
 
-	$con = connect($medicDB);
+	$con = connect($bd);
 
-	$query = "SELECT  * FROM  `$tabelaReceitas` WHERE `no`='$id'";
+	$query = "SELECT  * FROM  `$tabela` WHERE `no`='$id'";
 
 	$user = mysqli_query($con, $query);
     

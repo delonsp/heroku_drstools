@@ -18,7 +18,7 @@ function runUpdateAjax(id) {
         $('#nomeDaDoenca').val(data_receita.doenca);
         $('#nomeDaReceita').val(data_receita.nomeDaReceita);
         $('#textoReceita').val(data_receita.descricao);
-        
+            
 
         $('#gravarBtn').removeClass('btn-success').addClass('btn-warning').val("Gravar Mudanças");
         $('#gravarBtn').addClass('update-btn').removeClass('save-btn');
