@@ -9,7 +9,7 @@ function runUpdateAjax(id) {
         url: 'capturaDados.php',
         type: 'POST',
         dataType: 'html',
-        data: {no: id},
+        data: {no: id, tabela: 'bancoDeReceitas', bd: 'drsoluti2_medicamentos'},
     })
     .done(function(result) {
         data_receita = JSON.parse(result);

@@ -56,19 +56,7 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
 
 } else {
 
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
-
-
-    //echo "<div class='alert alert-danger'>Dados inválidos. Favor tentar novamente</div>";
+    echo "<div class='alert alert-danger'>Dados inválidos. Favor tentar novamente</div>";
 }
 
 
