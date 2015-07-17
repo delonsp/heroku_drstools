@@ -65,7 +65,7 @@ $(function() {
 
 });
 
-$('#enviarBtn').click(function(event) { // busca de principio ativo
+$('#envioBtn').click(function(event) { // busca de principio ativo
     event.preventDefault();
     $('#mostraFormBtn').css({
             visibility: 'visible', // mostra botao de salvar remedio
@@ -121,6 +121,13 @@ $('#mostraFormBtn').click(function(event) { // esconde formulario de principio e
     doNotShowSecondForm = false;
     $('#myModal').modal('hide');
   
+});
+
+$('#salvarDireto').click(function(event) {
+    event.preventDefault();
+    $('#firstFormRow').hide();
+    $('#secondFormRow').removeClass('hidden');
+
 });
 
 $('.save-btn').on("click", function(event) {

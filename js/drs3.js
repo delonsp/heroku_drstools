@@ -64,7 +64,7 @@ $(function() {
 
 });
 
-$('#enviarBtn').click(function(event) { // busca de nomeDoExame ativo
+$('#envioBtn').click(function(event) { // busca de nomeDoExame ativo
     event.preventDefault();
     $('#mostraFormBtn').css({
             visibility: 'visible', // mostra botao de salvar remedio
@@ -74,7 +74,7 @@ $('#enviarBtn').click(function(event) { // busca de nomeDoExame ativo
         url: 'pesquisaDados.php',
         type: 'post',
         dataType: 'html',
-        data: {nomeDoExame: $('#nomeDoExame').val()
+        data: {exame: $('#exame').val()
                  }, // busca nomeDoExame no banco de dados
     })
     .done(function(html) {
@@ -120,6 +120,13 @@ $('#mostraFormBtn').click(function(event) { // esconde formulario de nomeDoExame
     doNotShowSecondForm = false;
     $('#myModal').modal('hide');
   
+});
+
+$('#salvarDireto').click(function(event) {
+    event.preventDefault();
+    $('#firstFormRow').hide();
+    $('#secondFormRow').removeClass('hidden');
+
 });
 
 $('.save-btn').on("click", function(event) {

@@ -88,7 +88,7 @@ if(isset($_SESSION['logged_in'])) {
       </div>
     </div>
     <!-- ends navbar -->
-    
+    <h2 class="section_header2">Introduzir/Editar Exames</h2>
     <div id="contact" class="contact_page">
         <div class="container">
         	
@@ -109,10 +109,11 @@ if(isset($_SESSION['logged_in'])) {
                         <div class="control-group">
                             
                             <div class="controls">
-                                <input type="submit" id="enviarBtn" value="enviar" class="btn btn-success btn-large" />
+                                <input type="submit" id="envioBtn" value="enviar" class="btn btn-success" />
+                                <input type="submit" id="salvarDireto" value="Novo Exame" class="btn btn-primary" />
                             </div>
                         </div>
-                         
+                        
                     </form>
                 </div>
                 <div class="span6 hidden" id="secondFormRow">
@@ -128,9 +129,7 @@ if(isset($_SESSION['logged_in'])) {
                         <div class="control-group">
                             <label class="control-label" for="descricao">Descricao:</label>
                             <div class="controls">
-                                                                
-                                <input type="text" class="span4" id="descricao" size="30" name="descricao" placeholder="obrigatório"/>
-                               
+                                <textarea rows='10' cols='50' class="span4" id="descricao" size="100" name="descricao"></textarea>
                             </div>
                         </div>
                                                

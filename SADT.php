@@ -92,7 +92,13 @@ if(isset($_SESSION['logged_in'])) {
    <!-- features -->
    <h2 class="section_header2">Exames SADT/TISS</h2>
         <div class="container">
-           
+           <div class="row">
+                <div class="span2 offset5">
+                   
+                    <a href="novoExame.php" class="btn btn-success" target="_blank">Inserir/Editar Exame</a>
+                </div>
+            </div>
+            <br/>
         	<div class="row form">
             
             	<div class="span6">

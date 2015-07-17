@@ -122,9 +122,12 @@ if(isset($_SESSION['logged_in'])) {
                         <div class="control-group">
                             
                             <div class="controls">
-                                <input type="submit" id="enviarBtn" value="enviar" class="btn btn-success btn-large" />
+                                <input type="submit" id="envioBtn" value="Enviar" class="btn btn-success" />
+
+                                <input type="submit" id="salvarDireto" value="Novo Medicamento" class="btn btn-primary" />
                             </div>
                         </div>
+                        
                          
                     </form>
                 </div>
@@ -176,7 +179,7 @@ if(isset($_SESSION['logged_in'])) {
               </div>
               <div class="modal-footer">
                 <button class="btn" id="cancelBtn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                <button class="btn btn-primary" id="mostraFormBtn">Salvar Novo</button>
+                <button class="btn btn-primar" id="mostraFormBtn">Salvar Novo</button>
               </div>
             </div>
         </div>

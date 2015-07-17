@@ -15,18 +15,22 @@ function pesquisaDados($array) {
 		$aviso2 = "Nome da Receita:";
 		$row1 = "nomeDaReceita";
 		$row2 = "descricao";
+		$db = $medicDB;
 		
 	} else {
-		$nomeDoExame = $array[0];
-		$query="SELECT * FROM `$tabelaExames` WHERE `$descricaoDB` LIKE  '%$nomeDoExame%' ORDER BY `$nome`";
-		// SELECT  * FROM `relExames` WHERE `descricao` LIKE '%nomeDoExame%' ORDER BY `nome`
+		$exame = $array[0];
+		$query="SELECT * FROM `$tabelaExames` WHERE `$descricaoDB` LIKE  '%$exame%' ORDER BY `$nomeDB`";
+		// SELECT  * FROM `relExames` WHERE `descricao` LIKE '%exame%' ORDER BY `nome`
 		$aviso1 = "Foram encontradas os seguintes exames que incluem a palavra chave inserida:";
 		$aviso2 = "Nome do Exame:";
 		$row1 = "nome";
 		$row2 = "descricao";
+
+		$db = $examDB;
+
 	}
 
-	$con=connect($medicDB);
+	$con=connect($db);
 
 	$name = mysqli_query($con, $query) or die(mysqli_error($con));
 
@@ -61,15 +65,15 @@ if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
 
     
 	
-} else if( isset($_POST['descricao']) && !empty($_POST['descricao']) ) {
+} else if( isset($_POST['exame']) && !empty($_POST['exame']) ) {
 
-	$descricao = $_POST['descricao'];
-	$array = array($descricao);
+	$exame = $_POST['exame'];
+	$array = array($exame);
 
 	pesquisaDados($array);
 	
 } else {
-	echo "Dados inválidos.";
+	echo "Dados inválidos.".print_r([$_POST]);
 }     
                                     
 ?>
