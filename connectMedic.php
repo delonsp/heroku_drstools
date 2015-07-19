@@ -47,7 +47,9 @@ $tabelaReceitas = "bancoDeReceitas";
 $tabelaExames = "relExames";
 $tabelaUser = 'user_system';
 
+echo "<br><br>";
 echo "cleardb_server = $cleardb_server<br>";
+echo "us-cdbr-iron-east-02.cleardb.net";
 echo "cleardb_username = $cleardb_username<br>";
 echo "cleardb_password = $cleardb_password<br>";
 echo "cleardb_db = $cleardb_db<br>";
