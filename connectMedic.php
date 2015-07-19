@@ -52,13 +52,6 @@ function connect() {
 
 	global $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db;
 	global $cert_pem, $cert_key, $cleardb_ca;
-
-	echo "<br><br>";
-	echo "cleardb_server = $cleardb_server<br>";
-	echo "us-cdbr-iron-east-02.cleardb.net<br>";
-	echo "cleardb_username = $cleardb_username<br>";
-	echo "cleardb_password = $cleardb_password<br>";
-	echo "cleardb_db = $cleardb_db<br>";
 	
 	$con = mysqli_init();
 	mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);
