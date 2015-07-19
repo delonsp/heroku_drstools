@@ -49,7 +49,7 @@ $tabelaUser = 'user_system';
 
 echo "<br><br>";
 echo "cleardb_server = $cleardb_server<br>";
-echo "us-cdbr-iron-east-02.cleardb.net";
+echo "us-cdbr-iron-east-02.cleardb.net<br>";
 echo "cleardb_username = $cleardb_username<br>";
 echo "cleardb_password = $cleardb_password<br>";
 echo "cleardb_db = $cleardb_db<br>";
@@ -59,7 +59,7 @@ echo "cleardb_db = $cleardb_db<br>";
 function connect() {
 	$con = mysqli_init();
 	mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);
-	mysqli_real_connect($con, "us-cdbr-iron-east-02.cleardb.net", "b19eb6acaf07d4", "40332e46", "heroku_65f64762b6fda2f") or die(mysqli_connect_error($con));	
+	mysqli_real_connect($con, $cleardb_server, "b19eb6acaf07d4", "40332e46", "heroku_65f64762b6fda2f") or die(mysqli_connect_error($con));	
 	mysqli_set_charset($con,'utf8');
 	return $con;
 }
