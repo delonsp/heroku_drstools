@@ -91,7 +91,7 @@ yLGbEXgbgalggtnUItm4nFIrcOh51xxnTNtWDNktD06/0Oss5OY901VVwSm0JmV0
 LtNgymxXhQAJVDVaIAn4C0/Hh8GudcAs/QKv"
 
 
-echo "cleardb_server=$cleardb_server, cleardb_username = $cleardb_username, cleardb_password = $cleardb_password, cleardb_db = $cleardb_db";
+
 
 // Nomes dos campos das tabelas
 $nomeDaReceitaDB="nomeDaReceita";
