@@ -26,11 +26,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand scroller" data-section="body" href="menu.php">
+            <a class="brand scroller" href="index.php">
                 <img src="img/logo.png" alt="logo" />
             </a>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
+                    <li><a href="index.php">Menu</a></li>
                     <li><a href="medicamentos.php">Medicamentos</a></li>
                     <li><a href="medicamentos.php?man=1">Medicamentos Manipulados</a></li>
                     <li><a href="SADT.php">Exames SADT/TISS</a></li>
@@ -47,7 +48,7 @@
         <div class="container">
         	<div class="row form">
              	<div class="span6">
-                <form class="form-horizontal" method="post" action="menu.php">
+                <form class="form-horizontal" method="post" action="index.php">
                 	   	<div class="control-group">
                             <label for="login" class="control-label">Login:</label>
                             <div class="controls">

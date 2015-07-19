@@ -68,15 +68,15 @@ if(isset($_SESSION['logged_in'])) {
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
           	</a>
-          	<a class="brand scroller" data-section="body" href="index2.html">
+          	<a href="index.html">
                 <img src="img/logo.png" alt="logo" />
             </a>
 		  	<div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                     <li><a href="index2.html#principal">Principal</a></li>
-                    <li><a href="index2.html#empresa">Empresa</a></li>
+                    <li><a href="SADT.php">Empresa</a></li>
                     
-                    <li><a href="index2.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="atestado.php">Depoimentos</a></li>
                     <li><a href="index2.html#portfolio">Produtos</a></li>
                     <li><a href="index2.html#footer">Fale Conosco</a></li>
                     <li><a href="http://drsolution.com.br/blog">Blog</a></li>

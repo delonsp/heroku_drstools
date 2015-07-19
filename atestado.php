@@ -70,11 +70,12 @@ if(isset($_SESSION['logged_in'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand scroller" data-section="body" href="menu.php">
+            <a class="brand scroller" href="index.php">
                 <img src="img/logo.png" alt="logo" />
             </a>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
+                    <li><a href="index.php">Menu</a></li>
                     <li><a href="medicamentos.php">Medicamentos</a></li>
                     <li><a href="medicamentos.php?man=1">Medicamentos Manipulados</a></li>
                     <li><a href="SADT.php">Exames SADT/TISS</a></li>
