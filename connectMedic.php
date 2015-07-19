@@ -13,6 +13,7 @@ $cleardb_db = substr($cleardb_url["path"], 1);
 
 // certificados
 
+
 // cert_pem
 $cert_pem = getenv("CERT_PEM");
 
@@ -53,7 +54,7 @@ $tabelaUser = 'user_system';
 function connect() {
 	$con = mysqli_init();
 	mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);
-	mysqli_real_connect($con, $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die(mysqli_connect_error($con));	
+	mysqli_real_connect($con, "us-cdbr-iron-east-02.cleardb.net", "b19eb6acaf07d4", "40332e46", "heroku_65f64762b6fda2f") or die(mysqli_connect_error($con));	
 	mysqli_set_charset($con,'utf8');
 	return $con;
 }
