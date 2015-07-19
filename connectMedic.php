@@ -4,7 +4,7 @@
 // $DB = "drsoluti2";
 
 
-// Nomes dos bancos de dados locais do heroku
+// Dados do banco do heroku
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
@@ -37,7 +37,7 @@ $tabelaUser = 'user_system';
 function connect() {
 	$con = mysqli_init();
 	mysqli_ssl_set($con, "b19eb6acaf07d4-key.pem", "b19eb6acaf07d4-cert.pem", "cleardb-ca.pem", null, null);
-	mysqli_real_connect($con, $cleardb_url, $cleardb_username, $cleardb_password, $cleardb_db) or die(mysqli_connect_error($con));	
+	mysqli_real_connect($con, $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die(mysqli_connect_error($con));	
 	mysqli_set_charset($con,'utf8');
 	return $con;
 }
