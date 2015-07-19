@@ -6,24 +6,26 @@
 
 // Dados do banco do heroku
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-global $cleardb_server = $cleardb_url["host"];
-global $cleardb_username = $cleardb_url["user"];
-global $cleardb_password = $cleardb_url["pass"];
-global $cleardb_db = substr($cleardb_url["path"], 1);
+
+global $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db;
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"], 1);
 
 // certificados
-
+global $cert_pem, $cert_key, $cleardb_ca;
 
 // cert_pem
-global $cert_pem = getenv("CERT_PEM");
+$cert_pem = getenv("CERT_PEM");
 
 
 //cert_key
-global $cert_key = getenv("CERT_KEY");
+$cert_key = getenv("CERT_KEY");
 
 //cleardb_ca
 
-global $cleardb_ca = getenv("CLEARDB_CA");
+$cleardb_ca = getenv("CLEARDB_CA");
 
 
 
