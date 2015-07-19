@@ -11,7 +11,7 @@ $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
 $cleardb_db = substr($cleardb_url["path"], 1);
 
-echo $cleardb_url. " ". $cleardb_server." ".$cleardb_username." ".$cleardb_password." ".$cleardb_db;
+print_r($cleardb_url); echo $cleardb_server." ".$cleardb_username." ".$cleardb_password." ".$cleardb_db;
 
 // Nomes dos campos das tabelas
 $nomeDaReceitaDB="nomeDaReceita";
