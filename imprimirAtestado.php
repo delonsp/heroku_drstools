@@ -25,7 +25,7 @@
         ob_end_flush();
 
 		
-		$con = connect($examDB);
+		$con = connect($DB);
 
 		
         $nomeClinica = $_POST['nomeClinica'];

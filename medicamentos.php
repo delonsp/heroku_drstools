@@ -4,7 +4,7 @@ ob_start();
 session_start();     
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
-    $con = connect($medicDB);
+    $con = connect($DB);
     if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
         $email = mysqli_real_escape_string($con, $_COOKIE['login']);
         $pass = mysqli_real_escape_string($con, $_COOKIE['pass']);
@@ -132,7 +132,7 @@ if(isset($_SESSION['logged_in'])) {
                                     $nome = NULL;
                                 }
 
-                                $con=connect($medicDB);
+                                $con=connect($DB);
                                 
                                                                                    
                                 $name = mysqli_query($con,"SELECT  `$nomeDaReceitaDB` FROM  $tabelaReceitas WHERE `$man`=$m ORDER BY `$nomeDaReceitaDB`") or die(mysqli_error($con));
@@ -186,7 +186,7 @@ if(isset($_SESSION['logged_in'])) {
                             <div class="controls">
                                 <select id="nomeClinica" class="span4" name="nomeClinica" size="5">
                                 <?php
-                                    $con=connect($examDB);
+                                    $con=connect($DB);
                                    
                                     $name = mysqli_query($con,"SELECT  `$localDB` FROM `$tabelaTISS` ORDER BY `$localDB`") or die(mysqli_error($con));
                                     while ($name_row = mysqli_fetch_assoc($name)) {
@@ -239,7 +239,7 @@ if(isset($_SESSION['logged_in'])) {
                                     $consolidado = "";
                                     
                                     $listaMedic = $_POST['listaMedic'];
-                                    $con=connect($medicDB);
+                                    $con=connect($DB);
                                     
                                     foreach($listaMedic as $remedio) {
                                                                                 
@@ -255,7 +255,7 @@ if(isset($_SESSION['logged_in'])) {
                                  
                                 echo'<br/>';
 
-                                $con=connect($examDB);
+                                $con=connect($DB);
 
                                 $logo = mysqli_query($con,"SELECT `$logoDB` FROM $tabelaTISS WHERE `$localDB` = '$nomeClinica'");
                                 $logo = $logo->fetch_assoc()[$logoDB];

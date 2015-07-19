@@ -40,7 +40,7 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
                                         `$man` = '$m'";
     
 
-    atualizaDados($atualiza, $id, $medicDB, $tabelaReceitas);
+    atualizaDados($atualiza, $id, $DB, $tabelaReceitas);
     
 
 } else if (isset($_POST['nomeDoExame']) && !empty($_POST['nomeDoExame']) &&
@@ -52,7 +52,7 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     $id = $_POST['no'];
     $atualiza = "`$nomeDB`='$nomeDoExame',`$descricaoDB`='$descricao'";
 
-    atualizaDados($atualiza, $id, $examDB, $tabelaExames);
+    atualizaDados($atualiza, $id, $DB, $tabelaExames);
 
 } else {
 

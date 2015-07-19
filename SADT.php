@@ -13,7 +13,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
         $pass = mysqli_real_escape_string($_POST['pass']);
     }
 
-    $con = connect($medicDB);
+    $con = connect($DB);
     
     $query1 = "SELECT COUNT(`$userId`) FROM $tabelaUser WHERE `$userEmail` = '$email' AND `$userPass` = '$pass'";
     
@@ -135,7 +135,7 @@ if(isset($_SESSION['logged_in'])) {
                                 }
 
                                  //continua daqui
-                                $con = connect($examDB);                  
+                                $con = connect($DB);                  
                                 $name = mysqli_query($con,"SELECT  `$nomeDB` FROM  `$tabelaExames` ORDER BY `$nomeDB`") or die(mysqli_error($con));
                                 while ($name_row = mysqli_fetch_assoc($name)) {
                                     
@@ -172,7 +172,7 @@ if(isset($_SESSION['logged_in'])) {
                             <div class="controls">
                                 <select id="nomeConvenio" class="span4" name="nomeConvenio" size="5">
                                     <?php
-                                        $con = connect($examDB);
+                                        $con = connect($DB);
                                         $tabela ='logosConvenios';
                                         $name = mysqli_query($con, "SELECT  `nome` FROM  $tabela ORDER BY `nome`") or die(mysqli_error($con));
                                         while ($name_row = mysqli_fetch_assoc($name)) {
@@ -284,7 +284,7 @@ if(isset($_SESSION['logged_in'])) {
                                     $listaExames = $_POST['listaExames'];
                                     $tabela ='relExames';
                                     $consolidado =''; $i=0;
-                                    $con = connect($examDB);
+                                    $con = connect($DB);
                                     
                                     foreach($listaExames as $exames) {
                                         $i++; 

@@ -39,7 +39,7 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     				"$nomeDaReceitaDB" => $nomeDaReceita,
     				"$descricaoDB" => $textoReceita
     				);
-    insereDados($data, $tabelaReceitas, $medicDB);
+    insereDados($data, $tabelaReceitas, $DB);
 
       
 
@@ -50,7 +50,7 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     $data = array("$nomeDB" => $nomeDoExame,
                    "$descricaoDB" => $descricao  );
 
-    insereDados($data, $tabelaExames, $examDB);
+    insereDados($data, $tabelaExames, $DB);
 
 } else {
     echo "<div class='alert alert-danger'>Dados inválidos. Favor tentar novamente</div>";

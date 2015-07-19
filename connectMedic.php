@@ -1,8 +1,17 @@
 <?php
 
-// Nomes dos bancos de dados
-$medicDB = "drsoluti2_medicamentos";
-$examDB = "drsoluti2_exames";
+// Nomes dos bancos de dados locais
+// $DB = "drsoluti2_medicamentos";
+// $DB = "drsoluti2_exames";
+
+// Nomes dos bancos de dados locais do heroku
+// $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+// $cleardb_server = $cleardb_url["host"];
+// $cleardb_username = $cleardb_url["user"];
+// $cleardb_password = $cleardb_url["pass"];
+// $cleardb_db = substr($cleardb_url["path"], 1);
+
+$DB = "drsoluti2";
 
 // Nomes dos campos das tabelas
 $nomeDaReceitaDB="nomeDaReceita";
