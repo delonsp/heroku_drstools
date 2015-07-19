@@ -37,8 +37,9 @@ $tabelaUser = 'user_system';
 
 
 function connect() {
-	
-	$con=mysqli_connect($cleardb_url,$cleardb_username,$cleardb_password,$cleardb_db) or die(mysqli_connect_error($con));	
+	$con = mysqli_init();
+	mysqli_ssl_set($con, "b19eb6acaf07d4-key.pem", "b19eb6acaf07d4-cert.pem", "cleardb-ca.pem", null, null);
+	mysqli_real_connect($con, $cleardb_url, $cleardb_username, $cleardb_password, $cleardb_db) or die(mysqli_connect_error($con));	
 	mysqli_set_charset($con,'utf8');
 	return $con;
 }
