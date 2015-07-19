@@ -94,7 +94,7 @@ LtNgymxXhQAJVDVaIAn4C0/Hh8GudcAs/QKv"
 
 
 // Nomes dos campos das tabelas
-$nomeDaReceitaDB="nomeDaReceita";
+$nomeDaReceitaDB = "nomeDaReceita";
 $descricaoDB = "descricao";
 $no = "no";
 $localDB="local";
