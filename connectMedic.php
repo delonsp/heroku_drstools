@@ -1,17 +1,16 @@
 <?php
 
 // Nomes dos bancos de dados locais
-// $DB = "drsoluti2_medicamentos";
-// $DB = "drsoluti2_exames";
+// $DB = "drsoluti2";
+
 
 // Nomes dos bancos de dados locais do heroku
-// $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-// $cleardb_server = $cleardb_url["host"];
-// $cleardb_username = $cleardb_url["user"];
-// $cleardb_password = $cleardb_url["pass"];
-// $cleardb_db = substr($cleardb_url["path"], 1);
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"], 1);
 
-$DB = "drsoluti2";
 
 // Nomes dos campos das tabelas
 $nomeDaReceitaDB="nomeDaReceita";
@@ -36,9 +35,9 @@ $tabelaUser = 'user_system';
 
 
 
-function connect($db) {
+function connect() {
 	
-	$con=mysqli_connect('localhost','not_root','not_root',$db) or die(mysqli_connect_error());	
+	$con=mysqli_connect($cleardb_url,$cleardb_username,$cleardb_password,$cleardb_db) or die(mysqli_connect_error());	
 	mysqli_set_charset($con,'utf8');
 	return $con;
 }

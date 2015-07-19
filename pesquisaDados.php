@@ -30,7 +30,7 @@ function pesquisaDados($array) {
 
 	}
 
-	$con=connect($db);
+	$con=connect();
 
 	$name = mysqli_query($con, $query) or die(mysqli_error($con));
 

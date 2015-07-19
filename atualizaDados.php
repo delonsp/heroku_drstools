@@ -4,7 +4,7 @@ include("connectMedic.php");
 
 function atualizaDados($atualiza, $id, $db, $tabela) {
 
-    $con=connect($db);
+    $con=connect();
 
     //UPDATE `relExames` SET `nome`='estudo urodinamico', `descricao` = 'estudo urodinâmico completo.' WHERE `no`='14' LIMIT 1
 

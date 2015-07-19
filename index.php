@@ -4,7 +4,7 @@ ob_start();
 session_start();     
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
-    $con = connect($DB);
+    $con = connect();
     if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
         $email = mysqli_real_escape_string($con, $_COOKIE['login']);
         $pass = mysqli_real_escape_string($con, $_COOKIE['pass']);

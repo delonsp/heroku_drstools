@@ -25,7 +25,7 @@
         ob_end_flush();
 
 		
-		$con = connect($DB);
+		$con = connect();
 
 		
         $nomeClinica = $_POST['nomeClinica'];

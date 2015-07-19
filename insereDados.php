@@ -9,7 +9,7 @@ function insereDados($data, $tabela, $db) {
     $fields_sql = '`'.implode('`, `', array_keys($data)).'`';
     $values_sql = '\''.implode('\', \'', $data).'\'';
 
-    $con=connect($db);
+    $con=connect();
 
     $query = "INSERT INTO `$tabela` ($fields_sql) VALUES ($values_sql)";
 
