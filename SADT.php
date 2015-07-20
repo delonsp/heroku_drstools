@@ -1,16 +1,15 @@
 <?php
 include_once("connectMedic.php");
-ob_start();
 session_start();
-echo "<h1 style='font-size:3em;color:white;background-color:black;'>SESSION = {$_SESSION['logged_in']}</h1>";       
+echo "<h1 style='font-size:3em;color:white;background-color:black;'>COOKIE = {$_COOKIE['email']}</h1>";        
 
-if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
-    if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
-        $email = mysqli_real_escape_string($_COOKIE['login']);
+if(isset($_POST['email'], $_POST['pass']) || isset($_COOKIE['email'], $_COOKIE['pass'])) {
+    if(isset($_COOKIE['email'], $_COOKIE['pass'])) {
+        $email = mysqli_real_escape_string($_COOKIE['email']);
         $pass = mysqli_real_escape_string($_COOKIE['pass']);
         
     } else {
-        $email = mysqli_real_escape_string($_POST['login']);
+        $email = mysqli_real_escape_string($_POST['email']);
         $pass = mysqli_real_escape_string($_POST['pass']);
     }
 
@@ -23,8 +22,8 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     
     if ($total ==1) {
         
-        setcookie('email', $_POST['email'], time() + 600);
-        setcookie('pass', $_POST['pass'], time() + 600);
+        setcookie('email', $_POST['email'], time() + 1728000);
+        setcookie('pass', $_POST['pass'], time() + 1728000);
         $_SESSION['logged_in'] = 1; 
     }
     
@@ -245,10 +244,10 @@ if(isset($_SESSION['logged_in'])) {
                                 $nome = $_POST['nomeDoPaciente'];
                                 $nomeConvenio = $_POST['nomeConvenio'];
 
-                                if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 600); }
-                                if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 600); }
-                                if($_COOKIE['convenio'] != $nomeConvenio) { setcookie('convenio', $nomeConvenio, time() + 600); }
-                                ob_end_flush();
+                                //if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 600); }
+                                //if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 600); }
+                                //if($_COOKIE['convenio'] != $nomeConvenio) { setcookie('convenio', $nomeConvenio, time() + 600); }
+                                //ob_end_flush();
 
                                 $cid = $_POST['cid'];
                          ?>

@@ -1,6 +1,6 @@
 <?php 
 	include_once("connectMedic.php");
-	ob_start();
+	
 	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,9 +20,9 @@
 	&& isset($_POST['nomeClinica']) && !empty($_POST['nomeClinica'])
 	&& isset($_POST['tipoAtestado']) && !empty($_POST['tipoAtestado'])) {
 
-		if($_COOKIE['nome'] != $_POST['nomeDoPaciente'] ) { setcookie('nome', $_POST['nomeDoPaciente'], time() + 600); }
-        if($_COOKIE['local'] != $_POST['nomeClinica'] ) { setcookie('local', $_POST['nomeClinica'], time() + 600); }
-        ob_end_flush();
+		//if($_COOKIE['nome'] != $_POST['nomeDoPaciente'] ) { setcookie('nome', $_POST['nomeDoPaciente'], time() + 600); }
+        //if($_COOKIE['local'] != $_POST['nomeClinica'] ) { setcookie('local', $_POST['nomeClinica'], time() + 600); }
+        //ob_end_flush();
 
 		
 		$con = connect();
