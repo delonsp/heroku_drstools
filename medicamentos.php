@@ -2,10 +2,8 @@
 include_once("connectMedic.php");
 ob_start();
 session_start();     
-$email = "";
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect();
-    global $email;
     if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
         $email = mysqli_real_escape_string($con, $_COOKIE['login']);
         $pass = mysqli_real_escape_string($con, $_COOKIE['pass']);
@@ -39,7 +37,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     }
 }
 
-if(isset($_SESSION['logged_in']) && !empty($email) && isset($email)) { 
+if(isset($_SESSION['logged_in'])) { 
     
 ?>        
 
