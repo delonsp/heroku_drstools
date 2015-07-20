@@ -15,7 +15,7 @@ function pesquisaDados($array) {
 		$aviso2 = "Nome da Receita:";
 		$row1 = "nomeDaReceita";
 		$row2 = "descricao";
-		$db = $DB;
+		//$db = $DB;
 		
 	} else {
 		$exame = $array[0];
@@ -26,7 +26,7 @@ function pesquisaDados($array) {
 		$row1 = "nome";
 		$row2 = "descricao";
 
-		$db = $DB;
+		//$db = $DB;
 
 	}
 
