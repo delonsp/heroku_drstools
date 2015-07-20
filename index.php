@@ -3,14 +3,14 @@ include_once("connectMedic.php");
 
 session_start();    
 
-if(isset($_POST['email'], $_POST['pass']) || isset($_COOKIE['email'], $_COOKIE['pass'])) {
+if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect();
-    if(isset($_COOKIE['email'], $_COOKIE['pass'])) {
-        $email = mysqli_real_escape_string($con, $_COOKIE['email']);
+    if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
+        $email = mysqli_real_escape_string($con, $_COOKIE['login']);
         $pass = mysqli_real_escape_string($con, $_COOKIE['pass']);
         
     } else {
-        $email = mysqli_real_escape_string($con, $_POST['email']);
+        $email = mysqli_real_escape_string($con, $_POST['login']);
         $pass = mysqli_real_escape_string($con, $_POST['pass']);
     }
 
@@ -21,7 +21,7 @@ if(isset($_POST['email'], $_POST['pass']) || isset($_COOKIE['email'], $_COOKIE['
     
     if ($total ==1) {
         
-        setcookie('email', $_POST['email'], time() + 1728000);
+        setcookie('login', $_POST['login'], time() + 1728000);
         setcookie('pass', $_POST['pass'], time() + 1728000);
         $_SESSION['logged_in'] = 1; 
     }
