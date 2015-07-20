@@ -1,0 +1,12 @@
+<td>
+  <%= link_to user.email, user %>
+</td>
+<td>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.submit 'Mudar nível de acesso', :class => 'button-xs' %>
+  <% end %>
+</td>
+<td>
+  <%= link_to("Apagar usuário", user_path(user), :data => { :confirm => "Tem certeza?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
+</td>
