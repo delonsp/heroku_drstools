@@ -6,8 +6,6 @@
 
 
 
-
-
 function connect() {
 
 	// Dados do banco do heroku
@@ -29,8 +27,6 @@ function connect() {
 	//cleardb_ca
 
 	$cleardb_ca = getenv("CLEARDB_CA");
-
-
 
 
 	// Nomes dos campos das tabelas
