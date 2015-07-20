@@ -1,7 +1,6 @@
 <?php
 include_once("connectMedic.php");
 session_start();
-echo "<h1 style='font-size:3em;color:white;background-color:black;'>COOKIE = {$_COOKIE['login']}</h1>";        
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
@@ -89,7 +88,7 @@ if(isset($_SESSION['logged_in'])) {
         </div>
       </div>
     </div>
-    <!-- ends navbar -->
+    <!-- ends navbar --> <?php  echo "<h1 style='font-size:3em;color:white;background-color:black;'>COOKIE = {$_COOKIE['login']}</h1>";   ?>
    <!-- features -->
    <h2 class="section_header2">Exames SADT/TISS</h2>
         <div class="container">
