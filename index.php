@@ -38,7 +38,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     }
 }
 
-if(isset($_SESSION['logged_in'])) { 
+if(isset($_SESSION['logged_in']) && !empty($email) && isset($email)) { 
     
 ?>        
 
