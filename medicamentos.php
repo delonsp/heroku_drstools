@@ -121,13 +121,13 @@ if(isset($_SESSION['logged_in'])) {
                                 $soler = "Clinica Medica Soler. Av. Satélite 84, São Mateus, São Paulo, SP | tel (11) 2014-4599";
 
                                 if(isset($_COOKIE['local'])) {
-                                    $local = mysql_real_escape_string($con, $_COOKIE['local']);
+                                    $local = mysql_real_escape_string($_COOKIE['local']);
                                 } else {
                                     $local = $soler;
                                 }
 
                                 if(isset($_COOKIE['nome'])) {
-                                    $nome = mysql_real_escape_string($con, $_COOKIE['nome']);
+                                    $nome = mysql_real_escape_string($_COOKIE['nome']);
                                 } else {
                                     $nome = NULL;
                                 }
@@ -228,7 +228,7 @@ if(isset($_SESSION['logged_in'])) {
                                     
                                 
                                     setlocale(LC_ALL, "pt_BR.utf-8", "pt_BR", "portuguese");
-                                    $nome = mb_strtoupper($_POST['nomeDoPaciente']);
+                                    $nome = strtoupper($_POST['nomeDoPaciente']);
                                     if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 600); }
 
                                     $tels = $_POST['telsDoPaciente'];

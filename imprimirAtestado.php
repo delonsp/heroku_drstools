@@ -63,7 +63,7 @@
 		 	<tr><td class="htitle2">Identifica&ccedil;&atilde;o do Paciente ou Acompanhante</td></tr>
 		 	<tr><td class="tdh">
 		 	<dl>
-		 	<dt>Nome:</dt><dd><b><?php echo mb_strtoupper($_POST['nomeDoPaciente']); ?></b></dd>
+		 	<dt>Nome:</dt><dd><b><?php echo strtoupper($_POST['nomeDoPaciente']); ?></b></dd>
 
 		 	</dl>
 		 	</td></tr>

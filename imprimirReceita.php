@@ -20,7 +20,7 @@
         } else {
             $logo .= $_POST['logo2'];
         }
-        $nome = mb_strtoupper($_POST['nomeDoPaciente2']);
+        $nome = strtoupper($_POST['nomeDoPaciente2']);
         $end = $_POST['endDoPaciente2'];
         $tels = $_POST['telsDoPaciente2'];        
 
