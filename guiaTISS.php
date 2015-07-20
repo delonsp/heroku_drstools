@@ -4,7 +4,7 @@ if(isset($_POST['nomeDoPaciente2'], $_POST['nomeConvenio2'], $_POST['imgConvenio
 !empty($_POST['nomeDoPaciente2']) && !empty($_POST['nomeConvenio2']) && !empty($_POST['imgConvenio']) && !empty($_POST['exames'])  ) {
 
 	setlocale(LC_ALL, "pt_BR.utf-8", "pt_BR", "portuguese");
-  $nome = mb_strtoupper($_POST['nomeDoPaciente2']);
+  $nome = mb_convert_case($_POST['nomeDoPaciente2'], MB_CASE_UPPER, "UTF-8");
 	$convenio = $_POST['nomeConvenio2'];
 	$img = $_POST['imgConvenio'];
 	$img = "imgMedic/".$img;
