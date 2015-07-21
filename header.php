@@ -1,3 +1,10 @@
+<?php 
+    include 'debugger/ChromePhp.php';
+
+    ChromePhp::log("cookie_email = ".$_COOKIE['email']);
+    ChromePhp::log("cookie_login que falha = ".$_COOKIE['login']);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +15,7 @@
     <?php if (function_exists('customPageHeader')){
       customPageHeader();
     }?>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -48,8 +56,4 @@
       </div>
     </div>
     <!-- ends navbar -->
-    <?php 
-    include 'debugger/ChromePhp.php';
-
-    ChromePhp::log("cookie_email = ".$_COOKIE['email']);
-    ChromePhp::log("cookie_login que falha = ".$_COOKIE['login']);
+    
