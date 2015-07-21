@@ -1,7 +1,9 @@
 {
   "require": {
   	"php": "~5.5.16",
-  	"ext-mysql": "*"
+  	"ext-mysql": "*",
+    "php-console/php-console": "~3.0"
+    
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
