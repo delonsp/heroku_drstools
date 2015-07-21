@@ -3,6 +3,8 @@
 
     ChromePhp::log("cookie_email = ".$_COOKIE['email']);
     ChromePhp::log("cookie_login que falha = ".$_COOKIE['login']);
+    ChromePhp::log("cookie_pass que falha = ".$_COOKIE['pass']);
+    ChromePhp::log("session_logged_in = ".$_SESSION['logged_in']);
 ?>
 
 <!DOCTYPE html>
