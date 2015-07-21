@@ -48,10 +48,8 @@
       </div>
     </div>
     <!-- ends navbar -->
-    <?php include 'debugger/ChromePhp.php';
+    <?php 
+    include 'debugger/ChromePhp.php';
 
     ChromePhp::log("cookie_email = ".$_COOKIE['email']);
     ChromePhp::log("cookie_login que falha = ".$_COOKIE['login']);
-
-
-     ?>
