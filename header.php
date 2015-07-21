@@ -48,6 +48,3 @@
       </div>
     </div>
     <!-- ends navbar -->
-
-
-
