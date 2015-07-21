@@ -48,4 +48,3 @@
       </div>
     </div>
     <!-- ends navbar -->
-    <h1 style="font-size:3em;color:white;background-color:black;">SESSION = <?php echo $_SESSION["login"]; ?></h1>
