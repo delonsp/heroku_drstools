@@ -1,8 +1,8 @@
 <?php 
-include("connectMedic.php");
+
 
 function pesquisaDados($array) {
-	
+	include("connectMedic.php");
 
 	$query = "";
 
