@@ -3,11 +3,11 @@
 session_start();     
      
 
-if(isset($_POST['login'], $_POST['pass']) || isset($_SESSION['login'], $_SESSION['pass'])) {
+if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect();
-    if(isset($_SESSION['login'], $_SESSION['pass'])) {
-        $email = mysqli_real_escape_string($con, $_SESSION['login']);
-        $pass = mysqli_real_escape_string($con, $_SESSION['pass']);
+    if(isset($_COOKIE['login'], $_COOKIE['pass'])) {
+        $email = mysqli_real_escape_string($con, $_COOKIE['login']);
+        $pass = mysqli_real_escape_string($con, $_COOKIE['pass']);
         
     } else {
         $email = mysqli_real_escape_string($con, $_POST['login']);
@@ -21,9 +21,9 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_SESSION['login'], $_SESSION
     
     if ($total ==1) {
         
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['pass'] = $_POST['pass'];
-        $_SESSION['logged_in'] = 1; 
+        setcookie('login', $_POST['email'], time() + 60*60*24*10);
+        setcookie('pass', $_POST['pass'], time() + 60*60*24*10);
+        $_SESSION['email'] = $_POST['email'];  
     }
     
     if(isset($_SESSION['last_ip']) === false) {
