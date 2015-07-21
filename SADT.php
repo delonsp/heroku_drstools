@@ -168,9 +168,9 @@ if(isset($_SESSION['logged_in'])) {
                                 $nome = $_POST['nomeDoPaciente'];
                                 $nomeConvenio = $_POST['nomeConvenio'];
 
-                                //if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 600); }
-                                //if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 600); }
-                                //if($_COOKIE['convenio'] != $nomeConvenio) { setcookie('convenio', $nomeConvenio, time() + 600); }
+                                //if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 60*60*24*10, "/"); }
+                                //if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 60*60*24*10, "/"); }
+                                //if($_COOKIE['convenio'] != $nomeConvenio) { setcookie('convenio', $nomeConvenio, time() + 60*60*24*10, "/"); }
                                 //ob_end_flush();
 
                                 $cid = $_POST['cid'];

@@ -20,8 +20,8 @@
 	&& isset($_POST['nomeClinica']) && !empty($_POST['nomeClinica'])
 	&& isset($_POST['tipoAtestado']) && !empty($_POST['tipoAtestado'])) {
 
-		//if($_COOKIE['nome'] != $_POST['nomeDoPaciente'] ) { setcookie('nome', $_POST['nomeDoPaciente'], time() + 600); }
-        //if($_COOKIE['local'] != $_POST['nomeClinica'] ) { setcookie('local', $_POST['nomeClinica'], time() + 600); }
+		//if($_COOKIE['nome'] != $_POST['nomeDoPaciente'] ) { setcookie('nome', $_POST['nomeDoPaciente'], time() + 60*60*24*10, "/"); }
+        //if($_COOKIE['local'] != $_POST['nomeClinica'] ) { setcookie('local', $_POST['nomeClinica'], time() + 60*60*24*10, "/"); }
         //ob_end_flush();
 
 		

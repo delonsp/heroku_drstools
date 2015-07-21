@@ -153,12 +153,12 @@ if(isset($_SESSION['logged_in'])) {
                                     setlocale(LC_ALL, "pt_BR.utf-8", "pt_BR", "portuguese");
                                     $nome = strtoupper($_POST['nomeDoPaciente']);
                                     
-                                    //if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 600); }
+                                    //if($_COOKIE['nome'] != $nome) { setcookie('nome', $nome, time() + 60*60*24*10, "/"); }
 
                                     $tels = $_POST['telsDoPaciente'];
                                     $nomeClinica = $_POST['nomeClinica'];
                                     
-                                    //if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 600); }
+                                    //if($_COOKIE['local'] != $nomeClinica) { setcookie('local', $nomeClinica, time() + 60*60*24*10, "/"); }
                                     //ob_end_flush();
                                                 
                                     $consolidado = "";
