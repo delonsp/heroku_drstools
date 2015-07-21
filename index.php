@@ -28,28 +28,28 @@ if(isset($_SESSION['logged_in'])) {
             <div class="row">
                 <div class="span12">
                 
-                <a href="medicamentos.php" class="linksDRS" target="_blank">Medicamentos</a>
+                <a href="medicamentos.php" class="linksDRS" >Medicamentos</a>
                 
                 </div>
             </div>
             <div class="row">
                 <div class="span12">
                 
-                <a href="medicamentos.php?man=1" class="linksDRS" target="_blank">Medicamentos Manipulados</a>
+                <a href="medicamentos.php?man=1" class="linksDRS" >Medicamentos Manipulados</a>
                 
                 </div>
             </div>
             <div class="row">
                 <div class="span12">
                
-                <a href="SADT.php" class="linksDRS" target="_blank">Guias de exames SADT</a>
+                <a href="SADT.php" class="linksDRS" >Guias de exames SADT</a>
                 
                 </div>
             </div>
             <div class="row">
                 <div class="span12">
                 
-                <a href="atestado.php" class="linksDRS" target="_blank">Atestados</a>
+                <a href="atestado.php" class="linksDRS" >Atestados</a>
                 </div>
             </div>
          </div>

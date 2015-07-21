@@ -20,7 +20,7 @@ if(isset($_SESSION['logged_in'])) {
            <div class="row">
                 <div class="span2 offset5">
                    
-                    <a href="novoExame.php" class="btn btn-success" target="_blank">Inserir/Editar Exame</a>
+                    <a href="novoExame.php" class="btn btn-success" >Inserir/Editar Exame</a>
                 </div>
             </div>
             <br/>

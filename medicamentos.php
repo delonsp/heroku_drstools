@@ -29,7 +29,7 @@ if(isset($_SESSION['logged_in'])) {
             <div class="row">
                 <div class="span2 offset5">
                    
-                    <a href="NovaReceita.php?man=<?php echo $m; ?>" class="btn btn-success" target="_blank">Inserir/Editar Receita</a>
+                    <a href="NovaReceita.php?man=<?php echo $m; ?>" class="btn btn-success" >Inserir/Editar Receita</a>
                 </div>
             </div>
             <div class="row form">
