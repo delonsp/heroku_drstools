@@ -2,6 +2,8 @@
 
 session_start();
 
+include 'debugger/ChromePhp.php';  
+
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect($DB);
     
@@ -22,8 +24,15 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     if ($total ==1) {
         
         setcookie('login', $_POST['login'], time() + 600);
+        setcookie('email', $email, time() + 600);
         setcookie('pass', $_POST['pass'], time() + 600);
         $_SESSION['logged_in'] = 1;
+
+        ChromePhp::log('Hello console!');
+        ChromePhp::log("SERVER = ".$_SERVER);
+        ChromePhp::log("post_login = ".$_POST['login']);
+        ChromePhp::log("cookie_login = ".$_COOKIE['login']);
+        ChromePhp::warn('something went wrong!');
     
     }
     
