@@ -30,9 +30,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
         ChromePhp::log('Hello console!');
         ChromePhp::log($_SERVER);
         ChromePhp::warn('something went wrong!');
-);
-
-       
+  
     }
     
     if(isset($_SESSION['last_ip']) === false) {
