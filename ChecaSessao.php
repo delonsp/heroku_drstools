@@ -31,6 +31,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
         ChromePhp::log('Hello console!');
         ChromePhp::log("SERVER = ".$_SERVER);
         ChromePhp::log("post_login = ".$_POST['login']);
+        ChromePhp::log("cookie_email = ".$_COOKIE['email']);
         ChromePhp::log("cookie_login = ".$_COOKIE['login']);
         ChromePhp::warn('something went wrong!');
     
