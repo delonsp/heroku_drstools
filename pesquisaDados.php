@@ -58,7 +58,7 @@ function pesquisaDados($array) {
 if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
     
     $principio = $_POST['principio'];
-    $m = $_POST['man']);
+    $m = $_POST['man'];
     $array = array($principio, $m);
 
     pesquisaDados($array);
