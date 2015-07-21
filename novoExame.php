@@ -2,7 +2,7 @@
 include_once("connectMedic.php");
 include("ChecaSessao.php");
 
-if(isset($_SESSION['email'])) { 
+if(isset($_SESSION['logged_in'])) { 
 
     $pageTitle="Novo Exame";
 

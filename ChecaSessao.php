@@ -23,7 +23,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
         
         setcookie('login', $_POST['email'], time() + 60*60*24*10);
         setcookie('pass', $_POST['pass'], time() + 60*60*24*10);
-        $_SESSION['email'] = (empty($_POST['email'])) ? $_COOKIE['email'] : $_POST['email'] ;  
+        $_SESSION['logged_in'] = 1;  
     }
     
     if(isset($_SESSION['last_ip']) === false) {
