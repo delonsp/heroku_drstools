@@ -1,7 +1,7 @@
 <?php 
 
 session_start();     
-include 'debugger/ChromePhp.php';     
+     
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect();
@@ -20,17 +20,10 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     $total = my_mysqli_result($users,0); // from connectMedic.php
     
     if ($total ==1) {
-
+        
+        setcookie('login', $_POST['login'], time() + 60*60*24*10);
+        setcookie('pass', $_POST['pass'], time() + 60*60*24*10);
         $_SESSION['logged_in'] = 1;  
-        
-        setcookie('login', $_POST['login'], time() + 60*60*24*10, "/");
-        setcookie('pass', $_POST['pass'], time() + 60*60*24*10, "/");
-
-        
-        ChromePhp::log('Hello console!');
-        ChromePhp::log($_SERVER);
-        ChromePhp::warn('something went wrong!');
-  
     }
     
     if(isset($_SESSION['last_ip']) === false) {
