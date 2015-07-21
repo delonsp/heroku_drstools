@@ -2,9 +2,7 @@
 
 include("connectMedic.php");
 
-function atualizaDados($atualiza, $id, $db, $tabela) {
-
-    $con=connect();
+function atualizaDados($atualiza, $id, $db, $tabela, $con) {
 
     //UPDATE `relExames` SET `nome`='estudo urodinamico', `descricao` = 'estudo urodinâmico completo.' WHERE `no`='14' LIMIT 1
 
@@ -27,32 +25,37 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     isset($_POST['man']) &&
     isset($_POST['no']) && !empty($_POST['no'])) {
 
-    
-    $nomeDaReceita = mysql_real_escape_string($_POST['nomeDaReceita']);
-    $nomeDaDoenca = mysql_real_escape_string($_POST['nomeDaDoenca']);
-    $textoReceita = mysql_real_escape_string($_POST['textoReceita']);
-    $m = mysql_real_escape_string($_POST['man']);
-    $id = mysql_real_escape_string($_POST['no']);
+    $con=connect();
+
+    $nomeDaReceita = mysqli_real_escape_string($con, $_POST['nomeDaReceita']);
+    $nomeDaDoenca = mysqli_real_escape_string($con, $_POST['nomeDaDoenca']);
+    $textoReceita = mysqli_real_escape_string($con, $_POST['textoReceita']);
+    $m = mysqli_real_escape_string($con, $_POST['man']);
+    $id = mysqli_real_escape_string($con, $_POST['no']);
 
     $atualiza = "`$nomeDaReceitaDB`='$nomeDaReceita',
                                         `$doencaDB`='$nomeDaDoenca',
                                         `$descricaoDB` = '$textoReceita',
                                         `$man` = '$m'";
+
+   
     
 
-    atualizaDados($atualiza, $id, $DB, $tabelaReceitas);
+    atualizaDados($atualiza, $id, $DB, $tabelaReceitas, $con);
     
 
 } else if (isset($_POST['nomeDoExame']) && !empty($_POST['nomeDoExame']) &&
             isset($_POST['descricao']) && !empty($_POST['descricao']) &&
             isset($_POST['no']) && !empty($_POST['no'])) {
 
-    $nomeDoExame = mysql_real_escape_string($_POST['nomeDoExame']);
-    $descricao = mysql_real_escape_string($_POST['descricao']);
-    $id = mysql_real_escape_string($_POST['no']);
+    $con=connect();
+
+    $nomeDoExame = mysqli_real_escape_string($con, $_POST['nomeDoExame']);
+    $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
+    $id = mysqli_real_escape_string($con, $_POST['no']);
     $atualiza = "`$nomeDB`='$nomeDoExame',`$descricaoDB`='$descricao'";
 
-    atualizaDados($atualiza, $id, $DB, $tabelaExames);
+    atualizaDados($atualiza, $id, $DB, $tabelaExames, $con);
 
 } else {
 
