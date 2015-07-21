@@ -21,8 +21,8 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     
     if ($total ==1) {
         
-        setcookie('login', $_POST['login'], time() + 60*60*24*10, "/");
-        setcookie('pass', $_POST['pass'], time() + 60*60*24*10, "/");
+        if (isset($_POST['login'])) setcookie('login', $_POST['login'], time() + 60*60*24*10, "/");
+        if (isset($_POST['pass'])) setcookie('pass', $_POST['pass'], time() + 60*60*24*10, "/");
         $_SESSION['logged_in'] = 1;  
     }
     
