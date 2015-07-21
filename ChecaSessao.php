@@ -23,7 +23,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_SESSION['login'], $_SESSION
         
         $_SESSION['login'] = $_POST['login'];
         $_SESSION['pass'] = $_POST['pass'];
-        $_SESSION['logged_in'] = 1; 
+        
     }
     
     if(isset($_SESSION['last_ip']) === false) {

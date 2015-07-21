@@ -2,7 +2,7 @@
 include_once("connectMedic.php");
 include("ChecaSessao.php");
 
-if(isset($_SESSION['logged_in'])) { 
+if(isset($_SESSION['login'])) { 
 
     $pageTitle="SADT";
 
