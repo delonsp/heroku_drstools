@@ -22,7 +22,7 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     
     if ($total ==1) {
         
-        setcookie('login', $_POST['email'], time() + 600);
+        setcookie('login', $_POST['login'], time() + 600);
         setcookie('email', $email, time() + 600);
         setcookie('pass', $_POST['pass'], time() + 600);
         $_SESSION['logged_in'] = 1; 
