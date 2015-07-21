@@ -1,8 +1,6 @@
 <?php 
 
-session_start();
-
-include 'debugger/ChromePhp.php';  
+session_start(); 
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect($DB);
