@@ -4,7 +4,7 @@ include("connectMedic.php");
 function pesquisaDados($array) {
 	
 
-	$con=connect();
+	$query = "";
 
 	if (sizeof($array)>1) {
 		$principio = $array[0];
@@ -18,7 +18,7 @@ function pesquisaDados($array) {
 		//$db = $DB;
 		
 	} else {
-		$exame = mysqli_real_escape_string($con, $array[0]);
+		$exame = $array[0];
 		$query="SELECT * FROM `$tabelaExames` WHERE `$descricaoDB` LIKE  '%$exame%' ORDER BY `$nomeDB`";
 		// SELECT  * FROM `relExames` WHERE `descricao` LIKE '%exame%' ORDER BY `nome`
 		$aviso1 = "Foram encontradas os seguintes exames que incluem a palavra chave inserida:";
@@ -29,6 +29,8 @@ function pesquisaDados($array) {
 		//$db = $DB;
 
 	}
+
+	$con=connect();
 
 	$name = mysqli_query($con, $query) or die(mysqli_error($con));
 
@@ -55,7 +57,9 @@ function pesquisaDados($array) {
    
 if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
     
-    $array = array($_POST['principio'], $_POST['man']);
+    $principio = $_POST['principio']);
+    $m = $_POST['man']);
+    $array = array($principio, $m);
 
     pesquisaDados($array);
 
@@ -63,7 +67,8 @@ if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
 	
 } else if( isset($_POST['exame']) && !empty($_POST['exame']) ) {
 
-	$array = array($_POST['exame']);
+	$exame = $_POST['exame']);
+	$array = array($exame);
 
 	pesquisaDados($array);
 	
