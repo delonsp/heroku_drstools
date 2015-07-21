@@ -1,6 +1,6 @@
 <?php
 include_once("connectMedic.php");
-include_once("ChecaSessao.php");  
+include("ChecaSessao.php");  
 
 if(isset($_SESSION['logged_in'])) { 
 
