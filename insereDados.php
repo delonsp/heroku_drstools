@@ -29,10 +29,10 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     isset($_POST['nomeDaDoenca']) && !empty($_POST['nomeDaDoenca']) &&
     isset($_POST['textoReceita']) && !empty($_POST['textoReceita'])) {
     
-    $nomeDaReceita = $_POST['nomeDaReceita'];
-    $nomeDaDoenca = $_POST['nomeDaDoenca'];
-    $textoReceita = $_POST['textoReceita'];
-    $m = $_POST['man'];
+    $nomeDaReceita = mysql_real_escape_string($_POST['nomeDaReceita']);
+    $nomeDaDoenca = mysql_real_escape_string($_POST['nomeDaDoenca']);
+    $textoReceita = mysql_real_escape_string($_POST['textoReceita']);
+    $m = mysql_real_escape_string($_POST['man']);
 
     $data = array("$doencaDB" => $nomeDaDoenca,
     				"$man" => $m,
@@ -45,8 +45,8 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
 
 } else if (isset($_POST['nomeDoExame']) && !empty($_POST['nomeDoExame']) &&
             isset($_POST['descricao']) && !empty($_POST['descricao'])) {
-    $nomeDoExame = $_POST['nomeDoExame'];
-    $descricao = $_POST['descricao'];
+    $nomeDoExame = mysql_real_escape_string($_POST['nomeDoExame']);
+    $descricao = mysql_real_escape_string($_POST['descricao']);
     $data = array("$nomeDB" => $nomeDoExame,
                    "$descricaoDB" => $descricao  );
 

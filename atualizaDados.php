@@ -28,11 +28,11 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     isset($_POST['no']) && !empty($_POST['no'])) {
 
     
-    $nomeDaReceita = $_POST['nomeDaReceita'];
-    $nomeDaDoenca = $_POST['nomeDaDoenca'];
-    $textoReceita = $_POST['textoReceita'];
-    $m = $_POST['man'];
-    $id = $_POST['no'];
+    $nomeDaReceita = mysql_real_escape_string($_POST['nomeDaReceita']);
+    $nomeDaDoenca = mysql_real_escape_string($_POST['nomeDaDoenca']);
+    $textoReceita = mysql_real_escape_string($_POST['textoReceita']);
+    $m = mysql_real_escape_string($_POST['man']);
+    $id = mysql_real_escape_string($_POST['no']);
 
     $atualiza = "`$nomeDaReceitaDB`='$nomeDaReceita',
                                         `$doencaDB`='$nomeDaDoenca',
@@ -47,9 +47,9 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
             isset($_POST['descricao']) && !empty($_POST['descricao']) &&
             isset($_POST['no']) && !empty($_POST['no'])) {
 
-    $nomeDoExame = $_POST['nomeDoExame'];
-    $descricao = $_POST['descricao'];
-    $id = $_POST['no'];
+    $nomeDoExame = mysql_real_escape_string($_POST['nomeDoExame']);
+    $descricao = mysql_real_escape_string($_POST['descricao']);
+    $id = mysql_real_escape_string($_POST['no']);
     $atualiza = "`$nomeDB`='$nomeDoExame',`$descricaoDB`='$descricao'";
 
     atualizaDados($atualiza, $id, $DB, $tabelaExames);
