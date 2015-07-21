@@ -7,8 +7,8 @@ function pesquisaDados($array) {
 	$con=connect();
 
 	if (sizeof($array)>1) {
-		$principio = $array[0]);
-		$m = $array[1]);
+		$principio = $array[0];
+		$m = $array[1];
 		$query="SELECT  * FROM  `$tabelaReceitas` WHERE `$descricaoDB` LIKE '%$principio%' AND `$man`= '$m' ORDER BY `$nomeDaReceitaDB`";
 		// SELECT  * FROM  `$tabelaReceitas` WHERE `$descricaoDB` LIKE '%$principio%' AND `$man`= $m ORDER BY `$nomeDaReceitaDB`
 		$aviso1 = "Foram encontradas as seguintes receitas cuja composição inclui o mesmo principio ativo:";
