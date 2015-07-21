@@ -20,10 +20,12 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
     $total = my_mysqli_result($users,0); // from connectMedic.php
     
     if ($total ==1) {
+
+         $_SESSION['logged_in'] = 1;  
         
         if (isset($_POST['login'])) setcookie('login', $_POST['login'], time() + 60*60*24*10, "/");
         if (isset($_POST['pass'])) setcookie('pass', $_POST['pass'], time() + 60*60*24*10, "/");
-        $_SESSION['logged_in'] = 1;  
+       
     }
     
     if(isset($_SESSION['last_ip']) === false) {
