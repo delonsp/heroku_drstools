@@ -1,13 +1,13 @@
-<?php 
-
-
-echo '
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
     <link rel="shortcut icon" href="img/favicon.ico?v=2">
-	<title>TISS</title>
+	<title><?= isset($PageTitle) ? $PageTitle : "Default Title"?></title>
+    <!-- Additional tags here -->
+    <?php if (function_exists('customPageHeader')){
+      customPageHeader();
+    }?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -49,8 +49,3 @@ echo '
     </div>
     <!-- ends navbar -->
     <h1 style="font-size:3em;color:white;background-color:black;">SESSION = {$_SESSION["login"]}</h1>
-';
-
-
-
- ?>

@@ -4,7 +4,13 @@ include("ChecaSessao.php");
 
 if(isset($_SESSION['logged_in'])) { 
 
-    include_once("header");
+    $pageTitle="atestado";
+
+    function customPageHeader() { ?>
+
+    <?php }
+
+    include_once("header.php");
 
     $soler = "Clinica Medica Soler. Av. Satélite 84, São Mateus, São Paulo, SP | tel (11) 2014-4599";
 

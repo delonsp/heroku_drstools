@@ -3,8 +3,15 @@ include_once("connectMedic.php");
 include("ChecaSessao.php");
 
 if(isset($_SESSION['logged_in'])) { 
+
+
+    $pageTitle="medicamentos";
+
+    function customPageHeader() { ?>
+
+    <?php }
     
-    include_once("header");
+    include_once("header.php");
       
 
     if (isset($_GET['man'])) {

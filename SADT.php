@@ -4,7 +4,13 @@ include("ChecaSessao.php");
 
 if(isset($_SESSION['logged_in'])) { 
 
-include_once("header");
+    $pageTitle="SADT";
+
+    function customPageHeader() { ?>
+
+    <?php }
+
+    include_once("header.php");
     
 ?>        
 

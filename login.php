@@ -1,4 +1,16 @@
-<?php include_once("header"); ?>
+<?php 
+
+    $pageTitle="login";
+
+    function customPageHeader() { ?>
+
+    <?php }
+
+    include_once("header.php");
+
+
+
+ ?>
 	<div id="contact" class="contact_page">
         <div class="container">
         	<div class="row form">
