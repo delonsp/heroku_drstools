@@ -48,3 +48,8 @@
       </div>
     </div>
     <!-- ends navbar --><!-- ends navbar --> <?php  echo "<h1 style='font-size:3em;color:white;background-color:black;'>COOKIE = {$_COOKIE['login']}</h1>";   ?>
+<?php  echo "<h1 style='font-size:3em;color:white;background-color:black;'>$_POST = {$_POST['login']}</h1>";   ?>
+
+
+
+
