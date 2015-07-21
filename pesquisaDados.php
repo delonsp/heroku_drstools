@@ -57,8 +57,8 @@ function pesquisaDados($array) {
    
 if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
     
-    $principio = mysql_real_escape_string($_POST['principio']);
-    $m = mysql_real_escape_string($_POST['man']);
+    $principio = $_POST['principio'];
+    $m = $_POST['man'];
     $array = array($principio, $m);
 
     pesquisaDados($array);
@@ -67,7 +67,7 @@ if( isset($_POST['principio']) && !empty($_POST['principio']) ) {
 	
 } else if( isset($_POST['exame']) && !empty($_POST['exame']) ) {
 
-	$exame = mysql_real_escape_string($_POST['exame']);
+	$exame = $_POST['exame'];
 	$array = array($exame);
 
 	pesquisaDados($array);
