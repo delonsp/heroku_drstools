@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
     <link rel="shortcut icon" href="img/favicon.ico?v=2">
-	<title><?= isset($PageTitle) ? $PageTitle : "Default Title"?></title>
+	<title><?= isset($pageTitle) ? $pageTitle : "Default Title"?></title>
     <!-- Additional tags here -->
     <?php if (function_exists('customPageHeader')){
       customPageHeader();
@@ -48,4 +48,4 @@
       </div>
     </div>
     <!-- ends navbar -->
-    <h1 style="font-size:3em;color:white;background-color:black;">SESSION = {$_SESSION["login"]}</h1>
+    <h1 style="font-size:3em;color:white;background-color:black;">SESSION = <?php echo $_SESSION["login"]; ?></h1>
