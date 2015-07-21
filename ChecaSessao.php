@@ -1,7 +1,7 @@
 <?php 
 
 session_start();     
-     
+include 'debugger/ChromePhp.php';     
 
 if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['pass'])) {
     $con = connect();
@@ -26,15 +26,10 @@ if(isset($_POST['login'], $_POST['pass']) || isset($_COOKIE['login'], $_COOKIE['
         setcookie('login', $_POST['login'], time() + 60*60*24*10, "/");
         setcookie('pass', $_POST['pass'], time() + 60*60*24*10, "/");
 
-        require_once(__DIR__ . '/../../src/PhpConsole/__autoload.php');
-
-        PhpConsole\Helper::register();
-
-        PhpConsole\Connector::getInstance()->getDebugDispatcher()->setDumper(
-        new PhpConsole\Dumper(2, 10, 40) // set new dumper with levelLimit=2, itemsCountLimit=10, itemSizeLimit=10
-
-        PC::debug($_POST['login']);
-        PC::debug($_COOKIE['login']);
+        
+        ChromePhp::log('Hello console!');
+        ChromePhp::log($_SERVER);
+        ChromePhp::warn('something went wrong!');
 );
 
        
