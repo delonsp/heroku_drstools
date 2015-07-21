@@ -2,13 +2,14 @@
 
 
 function pesquisaDados($array) {
-	include("connectMedic.php");
 
-	$query = "";
+	include_once("connectMedic.php");
+
+	$con=connect();
 
 	if (sizeof($array)>1) {
-		$principio = $array[0];
-		$m = $array[1];
+		$principio = mysqli_real_escape_string($con, $array[0]);
+		$m = mysqli_real_escape_string($con, $array[1]);
 		$query="SELECT  * FROM  `$tabelaReceitas` WHERE `$descricaoDB` LIKE '%$principio%' AND `$man`= '$m' ORDER BY `$nomeDaReceitaDB`";
 		// SELECT  * FROM  `$tabelaReceitas` WHERE `$descricaoDB` LIKE '%$principio%' AND `$man`= $m ORDER BY `$nomeDaReceitaDB`
 		$aviso1 = "Foram encontradas as seguintes receitas cuja composição inclui o mesmo principio ativo:";
@@ -18,7 +19,7 @@ function pesquisaDados($array) {
 		//$db = $DB;
 		
 	} else {
-		$exame = $array[0];
+		$exame = mysqli_real_escape_string($con, $array[0]);
 		$query="SELECT * FROM `$tabelaExames` WHERE `$descricaoDB` LIKE  '%$exame%' ORDER BY `$nomeDB`";
 		// SELECT  * FROM `relExames` WHERE `descricao` LIKE '%exame%' ORDER BY `nome`
 		$aviso1 = "Foram encontradas os seguintes exames que incluem a palavra chave inserida:";
@@ -29,8 +30,6 @@ function pesquisaDados($array) {
 		//$db = $DB;
 
 	}
-
-	$con=connect();
 
 	$name = mysqli_query($con, $query) or die(mysqli_error($con));
 

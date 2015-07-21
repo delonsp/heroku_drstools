@@ -1,15 +1,16 @@
 <?php 
 
 include("connectMedic.php");
+$con=connect();
 
-function insereDados($data, $tabela, $db) {
+function insereDados($data, $tabela, $db, $con) {
 
     //include_once("connectMedic.php");
 
     $fields_sql = '`'.implode('`, `', array_keys($data)).'`';
     $values_sql = '\''.implode('\', \'', $data).'\'';
 
-    $con=connect();
+    
 
     $query = "INSERT INTO `$tabela` ($fields_sql) VALUES ($values_sql)";
 
@@ -29,28 +30,28 @@ if( isset($_POST['nomeDaReceita']) && !empty($_POST['nomeDaReceita']) &&
     isset($_POST['nomeDaDoenca']) && !empty($_POST['nomeDaDoenca']) &&
     isset($_POST['textoReceita']) && !empty($_POST['textoReceita'])) {
     
-    $nomeDaReceita = mysql_real_escape_string($_POST['nomeDaReceita']);
-    $nomeDaDoenca = mysql_real_escape_string($_POST['nomeDaDoenca']);
-    $textoReceita = mysql_real_escape_string($_POST['textoReceita']);
-    $m = mysql_real_escape_string($_POST['man']);
+    $nomeDaReceita = mysqli_real_escape_string($con, $_POST['nomeDaReceita']);
+    $nomeDaDoenca = mysqli_real_escape_string($con, $_POST['nomeDaDoenca']);
+    $textoReceita = mysqli_real_escape_string($con, $_POST['textoReceita']);
+    $m = mysqli_real_escape_string($con, $_POST['man']);
 
     $data = array("$doencaDB" => $nomeDaDoenca,
     				"$man" => $m,
     				"$nomeDaReceitaDB" => $nomeDaReceita,
     				"$descricaoDB" => $textoReceita
     				);
-    insereDados($data, $tabelaReceitas, $DB);
+    insereDados($data, $tabelaReceitas, $DB, $con);
 
       
 
 } else if (isset($_POST['nomeDoExame']) && !empty($_POST['nomeDoExame']) &&
             isset($_POST['descricao']) && !empty($_POST['descricao'])) {
-    $nomeDoExame = mysql_real_escape_string($_POST['nomeDoExame']);
-    $descricao = mysql_real_escape_string($_POST['descricao']);
+    $nomeDoExame = mysqli_real_escape_string($con, $_POST['nomeDoExame']);
+    $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
     $data = array("$nomeDB" => $nomeDoExame,
                    "$descricaoDB" => $descricao  );
 
-    insereDados($data, $tabelaExames, $DB);
+    insereDados($data, $tabelaExames, $DB, $con);
 
 } else {
     echo "<div class='alert alert-danger'>Dados inválidos. Favor tentar novamente</div>";
