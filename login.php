@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <!-- ends navbar --> <?php  echo "<h1 style='font-size:3em;color:white;background-color:black;'>COOKIE = {$_COOKIE['login']}</h1>";   ?>
+    <!-- ends navbar --> <?php  echo "<h1 style='font-size:3em;color:white;background-color:black;'>SESSION = {$_SESSION['logged_in']}</h1>";   ?>
 	<div id="contact" class="contact_page">
         <div class="container">
         	<div class="row form">
