@@ -1,6 +1,6 @@
 <?php 
-	include_once("connectMedic.php");
-	
+ require_once("config/connectMedic.php");
+session_start();	
 	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -8,11 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="css/medicStyle.css" type="text/css" />
-<script language="javascript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <title>Atestado</title>
 </head>
 <body>
-<div id="receitaContainer">
+<div class="receitaContainer">
     
     <?php
 	
@@ -20,10 +20,10 @@
 	&& isset($_POST['nomeClinica']) && !empty($_POST['nomeClinica'])
 	&& isset($_POST['tipoAtestado']) && !empty($_POST['tipoAtestado'])) {
 
-		//if($_COOKIE['nome'] != $_POST['nomeDoPaciente'] ) { setcookie('nome', $_POST['nomeDoPaciente'], time() + 60*60*24*10, "/"); }
-        //if($_COOKIE['local'] != $_POST['nomeClinica'] ) { setcookie('local', $_POST['nomeClinica'], time() + 60*60*24*10, "/"); }
-        //ob_end_flush();
-
+		if($_SESSION['nome'] != $_POST['nomeDoPaciente'] ) { $_SESSION['nome'] = $_POST['nomeDoPaciente']; }
+        if($_SESSION['local'] != $_POST['nomeClinica'] ) { $_SESSION['local'] = $_POST['nomeClinica']; }
+    	
+    	$nomeCompleto = $_SESSION['primeiro_nome']." ".$_SESSION['nome_meio']." ".$_SESSION['ultimo_nome'];
 		
 		$con = connect();
 
@@ -45,25 +45,25 @@
 		?>
         
         <table>
-		 	<tr><td style="align: center; text-align: center;"><img width=220 src="<?php echo $logo; ?>"/></td></tr>
+		 	<tr><td style="align: center; text-align: center;"><img width=220 src="<?php echo htmlEntities($logo); ?>"/></td></tr>
 		 	<tr><td class="htitle">Atestado M&eacute;dico</td></tr>
 		 	<tr><td></td></tr>
 		 	<tr><td class="htitle2">Identifica&ccedil;&atilde;o do Emitente</td></tr>
 		 	<tr><td class="tdh">
 		 	<dl>
-		 	<dt>Nome:</dt><dd>Dr. Alain Machado Dutra - Urologista Titular da Sociedade Brasileira de Urologia desde 2002</dd>
-		 	<dt>CRM-SP:</dt><dd>102211</dd>
-		 	<dt>Email:</dt><dd>alain.uro@gmail.com</dd>
-                        <dt>Site:</dt><dd>http://alainuro.com</dd>
-		 	<dt>Endere&ccedil;o:</dt><dd><?php echo $_POST['nomeClinica']; ?></dd>
-		 	<dd><?php echo $_POST['logo2']; ?></dd>
+		 	<dt>Nome:</dt><dd><?php echo htmlEntities($nomeCompleto); ?></dd>
+		 	<dt>CRM-SP:</dt><dd><?php echo htmlEntities($_SESSION['crm']); ?></dd>
+		 	<dt>Email:</dt><dd><?php echo htmlEntities($_SESSION['user_email']); ?></dd>
+                       
+		 	<dt>Endere&ccedil;o:</dt><dd><?php echo htmlEntities($_POST['nomeClinica']); ?></dd>
+		 	
 		 	</dl>
 		 	</td></tr>
 		 	<tr><td></td></tr>
 		 	<tr><td class="htitle2">Identifica&ccedil;&atilde;o do Paciente ou Acompanhante</td></tr>
 		 	<tr><td class="tdh">
 		 	<dl>
-		 	<dt>Nome:</dt><dd><b><?php echo strtoupper($_POST['nomeDoPaciente']); ?></b></dd>
+		 	<dt>Nome:</dt><dd><b><?php echo htmlEntities(strtoupper($_POST['nomeDoPaciente'])); ?></b></dd>
 
 		 	</dl>
 		 	</td></tr>
@@ -92,37 +92,45 @@
 			$text .= "Deixou o consultório no horário das ". strftime("%H:%M", strtotime("+".$_POST['adiciona']." minutes")). " hs. ";
 			 
 			$text .= $trail;
-			echo "<h3>".$text."</h3>";
+			echo "<h3>". htmlEntities($text)."</h3>";
 
          ?>
          
 		<br>
 
         <?php if ($_POST['tipoAtestado'] == 'Atestado de Academia') {
-        	echo "<h3>Foi por mim examinado e se encontra na presente data hígido e apto para a realização de atividades físico-esportivas</h3>";
+        	echo "<h3>".htmlEntities("Foi por mim examinado e se encontra na presente data hígido e apto para a realização de atividades físico-esportivas<")."</h3>";
         } 
         	if ($_POST['tipoAtestado'] == 'Vários dias') {
-        		echo "<h3>Deverá ficar afastado por ______ dias a partir da presente data devido a _______________________________________</h3>";
+        		echo "<h3>".htmlEntities("Deverá ficar afastado por ______ dias a partir da presente data devido a _______________________________________")."</h3>";
 
         	}
 
         	if ($_POST['tipoAtestado'] != 'Atestado de Academia' && $_POST['tipoAtestado'] != 'Vários dias'
         		 && $_POST['tipoAtestado'] != 'Acompanhante') {
-        		echo "<h3>Devendo: ". $_POST['tipoAtestado']. "</h3>";
+        		echo "<h3>".htmlEntities("Devendo: ". $_POST['tipoAtestado'])."</h3>";
         	}
 
         ?>
 
         <br/>
-        <p>CID: <?php echo $_POST['cid']; ?></p>
+        <p>CID: <?php echo htmlEntities($_POST['cid']); ?></p>
         <br />
         <br />
 
-        <div id="signature">
+        <div id="autorizacao_paciente">
+        	<b>Autorizo a divulgação do Código CID:</b><br><br><br><br><br> 
         	<hr/>
-			<?php
-		        echo("São Paulo, $date_string ");
+        	Assinatura do Paciente
+        </div>
+
+        <div id="signature">
+        	<?php
+		        echo "<b>".htmlEntities("São Paulo, $date_string")."</b>";
 			?>
+        	<br><br><br><br><br><hr/>
+        	Carimbo e Assinatura do Médico
+			
         </div>
        
         

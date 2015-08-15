@@ -10,9 +10,15 @@ body, table {
 
 #signature {
    
-   width:200px;
+   width:250px;
    margin-top: 20px;   
    float:right;
+ }
+
+ #autorizacao_paciente {
+ 	width:300px;
+ 	margin-top: 20px;
+ 	float:left;
  }
 
 #containerForm2 {
@@ -31,22 +37,22 @@ body, table {
 page-break-after: always;
 }
 
-#receitaContainer {
+.receitaContainer {
 	margin: 50px;
 	width: 98%;
 	top: 0px;
 	height: auto;
 	margin: 0 auto 2em;
 }
-#receitaContainer table {
+.receitaContainer table {
 width: 98%;
 border-collapse: separate;
 border-spacing: 0px;
 }
-#receitaContainer table td {
+.receitaContainer table td {
 padding: 4px;
 }
-#receitaContainer table td.htitle {
+.receitaContainer table td.htitle {
 background-color: #d0d0d0;
 color: black;
 text-align: center;
@@ -55,7 +61,7 @@ font-family: Verdana, Helvetica, Arial, sans-serif;
 font-weight: bold;
 border: 1px solid black;
 }
-#receitaContainer table td.htitle2 {
+.receitaContainer table td.htitle2 {
 background-color: #e8e8e8;
 color: black;
 text-align: center;
@@ -65,16 +71,20 @@ border-top: 1px solid black;
 border-left: 1px solid black;
 border-right: 1px solid black;
 }
-#receitaContainer table td.tdh {
+.receitaContainer table td.tdh {
 font-size: 12px;
 font-family: Verdana, Helvetica, Arial, sans-serif;
 border: 1px solid black;
 }
-#receitaContainer dt {
+.receitaContainer dt {
 float: left;
 }
-#receitaContainer dd {
+.receitaContainer dd {
 padding-left: 50px;
+}
+
+.receitaContainer h3 {
+	line-height: 200%;
 }
 
 .pcont {
@@ -131,6 +141,8 @@ font-size: 1em;
 height: 1.2em;
 line-height: 1.2em;
 }
+
+
 
 @media print {
 .no-print, .no-print * { display: none !important; }

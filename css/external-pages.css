@@ -483,7 +483,7 @@
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
-	#pricing .cols4 .span3 {
+	#pricing .cols4 .col-md-3 {
 		width: 320px;
 	}
 	#pricing .cols4 .price_wrapper {

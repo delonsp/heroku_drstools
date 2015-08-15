@@ -1,5 +1,6 @@
 <?php
-include_once("connectMedic.php");
+session_start();
+require_once("config/connectMedic.php");
 if(isset($_POST['nomeDoPaciente2'], $_POST['nomeConvenio2'], $_POST['imgConvenio'], $_POST['exames']) &&
 !empty($_POST['nomeDoPaciente2']) && !empty($_POST['nomeConvenio2']) && !empty($_POST['imgConvenio']) && !empty($_POST['exames'])  ) {
 
@@ -10,9 +11,10 @@ if(isset($_POST['nomeDoPaciente2'], $_POST['nomeConvenio2'], $_POST['imgConvenio
 	$img = "imgMedic/".$img;
 	$exames = $_POST['exames'];
 	$arrayExames = explode("\n", $exames);
-	$nomeClinica2 = $_POST['nomeClinica2'];
-	$nomeClinica2 = justTheName($nomeClinica2);
-	$codigoConvenio2 = $_POST['codigoConvenio2'];
+	$nomeClinica2 = justTheName($_POST['nomeClinica2']);
+  $codigoConvenio2 = $_POST['codigoConvenio2'];
+  $nome_medico = strtoupper($_SESSION['primeiro_nome']." ".$_SESSION['ultimo_nome']);
+  $crm = $_SESSION['crm'];
 	
 ?>
 
@@ -24,7 +26,7 @@ xmlns="http://www.w3.org/1999/xhtml"><head><title>Guias SP/SADT</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<script language="javascript" type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 
 
 <style type="text/css" media="print">
@@ -261,7 +263,7 @@ xmlns="http://www.w3.org/1999/xhtml"><head><title>Guias SP/SADT</title>
 
                   class=Arial6Topo_Meio>2-</SPAN> Nº 
 
-              13432744</SPAN></TD></TR></TBODY></TABLE>
+              </SPAN></TD></TR></TBODY></TABLE>
 
             <TABLE height=31 cellSpacing=1 cellPadding=0 width="100%" 
 
@@ -511,15 +513,15 @@ xmlns="http://www.w3.org/1999/xhtml"><head><title>Guias SP/SADT</title>
 
                 <TD class="Borda4 Arial6Topo" width="43%">16 - Nome do 
 
-                  Profissional Solicitante <span class="style8">ALAIN MACHADO DA SILVA DUTRA</span></TD>
+                  Profissional Solicitante <span class="style8"><?php echo $nome_medico; ?></span></TD>
 
                 <TD class="Borda4 Arial6Topo" width="12%">17 - Conselho 
 
-                  Profissional <span class="style6">CRM-SP</span></TD>
+                  Profissional <span class="style6">CRM</span></TD>
 
                 <TD class="Borda4 Arial6Topo" width="15%">18 - Número no 
 
-                  Conselho <span class="style10">102211</span></TD>
+                  Conselho <span class="style10"><?php echo $crm; ?></span></TD>
 
                 <TD class="Borda4 Arial6Topo" width="5%">19 - UF</TD>
 
@@ -643,7 +645,7 @@ xmlns="http://www.w3.org/1999/xhtml"><head><title>Guias SP/SADT</title>
 
                         <CENTER>29-Qtde.Autor. </CENTER></TD></TR>
                         
-                        <?php for ($i=0; $i<5; $i++) {?>
+                        <?php for ($i=0; $i<sizeof($arrayExames); $i++) {?>
                         
                         <TR>
                         

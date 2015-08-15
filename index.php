@@ -1,68 +1,68 @@
 <?php
-include_once("connectMedic.php");
-include_once("ChecaSessao.php");  
+/**
+ * A simple PHP Login Script / ADVANCED VERSION
+ *
+ * @link https://github.com/devplanete/php-login-advanced
+ * @license http://opensource.org/licenses/MIT MIT License
+ */
 
-if(isset($_SESSION['logged_in'])) { 
-
-    $pageTitle="menu";
-
-    function customPageHeader() { ?>
-
-    <?php }
-    
-    include_once("header.php");
-
-?>
-  
-<!-- empresa -->
-    <div id="myLinks">
+// load php-login class
+require_once("classes/PHPLogin.php");
 
 
-        <div class="container">
-            <!-- header -->
-            <h2 class="section_header">
-                
-            </h2>
+// the login object will do all login/logout stuff automatically
+// so this single line handles the entire login process.
+// The login object constructor calls the ExecuteAction function that checks all the $_POST and $_GET variables related
+// to user autentication
 
-            <!-- princípios -->
-            <div class="row">
-                <div class="span12">
-                
-                <a href="medicamentos.php" class="linksDRS" >Medicamentos</a>
-                
-                </div>
-            </div>
-            <div class="row">
-                <div class="span12">
-                
-                <a href="medicamentos.php?man=1" class="linksDRS" >Medicamentos Manipulados</a>
-                
-                </div>
-            </div>
-            <div class="row">
-                <div class="span12">
-               
-                <a href="SADT.php" class="linksDRS" >Guias de exames SADT</a>
-                
-                </div>
-            </div>
-            <div class="row">
-                <div class="span12">
-                
-                <a href="atestado.php" class="linksDRS" >Atestados</a>
-                </div>
-            </div>
-         </div>
-    </div>
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/theme.js"></script>
-<script src="js/drs.js"></script>
-<script src="js/bootstrap-collapse.js"></script>
-</body>
 
-</html>
-<?php } // fecha o if do session
-else {
-    header("Location:login.php");
-}?>
+// include('views/_header.php');
+
+$login = new PHPLogin();
+
+// show the registration form
+if (isset($_GET['register']) && ! $login->isRegistrationSuccessful() && 
+   (ALLOW_USER_REGISTRATION || (ALLOW_ADMIN_TO_REGISTER_NEW_USER && $_SESSION['user_access_level'] == 255))) {
+    include('views/register.php');
+
+// show the request-a-password-reset or type-your-new-password form
+} else if (isset($_GET['password_reset']) && ! $login->isPasswordResetSuccessful()) {
+    if (isset($_REQUEST['user_name']) && isset($_REQUEST['verification_code']) && $login->isPasswordResetLinkValid()) {
+        // reset link is correct: ask for the new password
+        include("views/password_reset.php");
+    } else {
+        // no data from a password-reset-mail has been provided, 
+        // we show the request-a-password-reset form
+        include('views/password_reset_request.php');
+    }
+
+// show the edit form to modify username, email or password
+} else if (isset($_GET['edit']) && $login->isUserLoggedIn()) {
+    include('views/edit.php');
+
+// the user is logged in, we show informations about the current user
+} else if ($login->isUserLoggedIn()) {
+    include("views/_index.php");
+    //include('views/logged_in.php');
+
+// the user is not logged in, we show the login form
+} else {
+    include('views/_login.php');
+    // include('views/login.php');
+}
+
+// include('views/_footer.php');
+
+
+
+// ... ask if we are logged in here:
+// if ($login->isUserLoggedIn() == true) {
+//     // the user is logged in. you can do whatever you want here.
+//     // for demonstration purposes, we simply show the "you are logged in" view.
+//     include("views/_index.php");
+
+// } else {
+//     // the user is not logged in. you can do whatever you want here.
+//     // for demonstration purposes, we simply show the "you are not logged in" view.
+//     include("views/_login.php");
+// }

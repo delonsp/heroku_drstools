@@ -1,30 +1,30 @@
 <?php
 
-// Nomes dos bancos de dados locais
-// $DB = "drsoluti2";
 // Nomes dos campos das tabelas
-	$nomeDaReceitaDB = "nomeDaReceita";
-	$descricaoDB = "descricao";
-	$no = "no";
-	$localDB="local";
-	$logoDB="logo";
-	$nomeDB = "nome";
-	$doencaDB = "doenca";
-	$man = "man";
-	$userId = "user_id";
-	$userEmail = "user_email";
-	$userPass = "user_password";
+$nomeDaReceitaDB="nomeDaReceita";
+$descricaoDB = "descricao";
+$no = "id";
+$localDB="local";
+$logoDB="logo";
+$nomeDB = "nome";
+$doencaDB = "doenca";
+$man = "man";
+$usuarioID = "usuario_id";
+$userEmail = "user_email";
+$userPass = "user_password";
+$usuario = "user_name";
+$global = "global";
 
-	// Nomes das tabelas
-	$tabelaTISS = "codigosTISS";
-	$tabelaReceitas = "bancoDeReceitas";
-	$tabelaExames = "relExames";
-	$tabelaUser = 'user_system';
+// Nomes das tabelas
+$tabelaTISS = "nosocomios";
+$tabelaReceitas = "medicamentos";
+$tabelaExames = "exames";
+$tabelaLogos = "logosConvenios";
+
 
 
 
 function connect() {
-
 	// Dados do banco do heroku
 	$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	$cleardb_server = $cleardb_url["host"];
@@ -45,11 +45,6 @@ function connect() {
 
 	$cleardb_ca = getenv("CLEARDB_CA");
 
-
-	
-
-	// global $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db;
-	// global $cert_pem, $cert_key, $cleardb_ca;
 	
 	$con = mysqli_init();
 	mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);

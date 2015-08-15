@@ -1,23 +1,29 @@
 var doNotShowSecondForm = true;
 var data_receita = {};
 
+// Desculpe substitui none
+// Dados inválidos
+
+var url = "DataHandler.php";
+
 
 function runUpdateAjax(id) {
 
     
     $.ajax({
-        url: 'capturaDados.php',
+        url: url,
         type: 'POST',
         dataType: 'html',
-        data: {no: id, tabela: 'bancoDeReceitas', bd: 'drsoluti2_medicamentos'},
+        data: {no: id, tabela: 'medicamentos'},
     })
     .done(function(result) {
         data_receita = JSON.parse(result);
 
-
+        //populates the form with the retrieved data
         $('#nomeDaDoenca').val(data_receita.doenca);
         $('#nomeDaReceita').val(data_receita.nomeDaReceita);
         $('#textoReceita').val(data_receita.descricao);
+        $('#usuario_id').val(data_receita.usuario_id);
             
 
         $('#gravarBtn').removeClass('btn-success').addClass('btn-warning').val("Gravar Mudanças");
@@ -43,11 +49,11 @@ function runUpdateAjax(id) {
 
 $(function() {
    
-    $('#myModal').on('hidden', function () { 
+    $('#myModal').on('hidden.bs.modal', function () { 
             // habilita callback para mostrar de novo o formulario inicial de principio ativo
             // e esconder o formulario de nova medicacao.
 
-
+            
             if (doNotShowSecondForm) {
                 
                 $('#firstFormRow').show();
@@ -72,7 +78,7 @@ $('#envioBtn').click(function(event) { // busca de principio ativo
             
         });
     $.ajax({
-        url: 'pesquisaDados.php',
+        url: url,
         type: 'post',
         dataType: 'html',
         data: {principio: $('#principio').val(),
@@ -80,32 +86,13 @@ $('#envioBtn').click(function(event) { // busca de principio ativo
     })
     .done(function(html) {
         $('#myModal').modal('show');
-        if (html.indexOf("none")!=-1) { // nao teve achados, 
-            $('#myModalLabel').html("<h3>Sem medicamentos</h3>");
-            $('.modal-body').html("<p>Não foram achados medicamentos com o princípio ativo</p>");
+        
             
-        } else if (html.indexOf("Dados inválidos.")!=-1) { // campo em branco
-            
-            $('#myModalLabel').html(html);
-            $('.modal-body').html("<div class='alert alert-danger'>Favor tentar novamente</div>");
-            $('#mostraFormBtn').css({
-                visibility: 'hidden',
-                
-            });               
-        } else {
-            
-            $('.modal-body').html(html);
-            
-            $('.btn-warning').click(function(event) { // editar medicacao
-                doNotShowSecondForm = false;
-                $('#myModal').modal('hide');
-               
-                // put code to edit recipes
-
-                runUpdateAjax(this.id);
-
-            });
-        }
+        $('.modal-body').html(html);
+        
+        $('.mostraFormBtn').trigger();
+        runUpdateAjax(this.id);
+        
         
     })
     .fail(function() {
@@ -130,29 +117,31 @@ $('#salvarDireto').click(function(event) {
 
 });
 
-$('.save-btn').on("click", function(event) {
+$('.save-btn').on("click", function(event) { // actually updates or save a new record
     event.preventDefault();
     var myData = { nomeDaReceita: $('#nomeDaReceita').val(),
                        nomeDaDoenca: $('#nomeDaDoenca').val(),
                        textoReceita: $('#textoReceita').val(), // envia dados para gravacao no banco de dados
+                       usuario_id: $('#usuario_id').val(),
                        man: m};
-    var myurl="";
+    
     if ($(this).hasClass('update-btn')) {
-        myData.no = data_receita.no;
-        myurl = "atualizaDados.php"; 
-
-
-    } else {
-        myurl = "insereDados.php"; 
+        myData.no = data_receita.id;
     }
     
     $.ajax({
-        url: myurl,
+        url: url,
         type: 'post',
         dataType: 'html',
         data: myData
     })
     .done(function(html) {
+        if (html.indexOf("Dados inválidos.") != -1) {
+            doNotShowSecondForm = false;
+        } else {
+            doNotShowSecondForm = true;
+        }
+         //alert(html + " " + doNotShowSecondForm);
         $('#myModal').modal('show'); // mostra modal que insercao no banco de dados foi com sucesso ou não
         $('#myModalLabel').html("Inserção/Edição de Medicamentos");
         $('.modal-body').html(html);
@@ -161,11 +150,7 @@ $('.save-btn').on("click", function(event) {
             visibility: 'hidden',
             
         });
-        if (html.indexOf("Dados inválidos. Favor tentar novamente")!=-1) {
-            doNotShowSecondForm = false;
-        } else {
-            doNotShowSecondForm = true;
-        }
+        
         
         
     })
