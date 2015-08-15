@@ -4,7 +4,11 @@
   	"ext-mysql": "*"	
     
   },
+  "require": {
+    "ext-gd": "*"
+  },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
   }
+  
 }
