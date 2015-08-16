@@ -13,10 +13,17 @@
  *          by the way, it's bad style to use "root", but for development it will work.
  * DB_PASS: the password of the above user
  */
-define("DB_HOST", "127.0.0.1:8889");
-define("DB_NAME", "drsoluti2");
-define("DB_USER", "not_root");
-define("DB_PASS", "not_root");
+
+
+// Dados do banco do heroku
+
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+define("DB_HOST", $cleardb_url["host"]);
+define("DB_NAME", substr($cleardb_url["path"], 1));
+define("DB_USER", $cleardb_url["user"]);
+define("DB_PASS", $cleardb_url["pass"]);
+
 
 /**
  * Configuration for: Cookies
