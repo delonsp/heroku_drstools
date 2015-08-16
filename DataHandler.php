@@ -113,10 +113,14 @@ elseif (isset($_POST['nomeDoExame']) && !empty($_POST['nomeDoExame']) &&
 
 	$data_array = ["nome" => $_POST['nomeDoExame'],
 					"descricao" => $_POST['descricao'] ];
+	$usuario_id = $_POST['usuario_id'];
+
+	include_once("debugger/ChromePhp.php");
+	ChromePhp::log($tabelaExames);
 					
 
 	// atualiza dados e mensagens vão para as propriedades de classe
-	$dataTask->atualizaDados($id, $data_array, $tabelaExames);
+	$dataTask->atualizaDados($id, $usuario_id, $data_array, $tabelaExames);
 	echo showMessages($dataTask);
 
 }
