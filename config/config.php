@@ -74,7 +74,7 @@ define("EMAIL_SMTP_HOST", "ssl://smtpcorp.com"); //  srv58.hosting24.com
 define("EMAIL_SMTP_AUTH", true);
 define("EMAIL_SMTP_USERNAME", "alain.dutra@gmail.com"); //  alain_urologista@drsolutionapp.info
 define("EMAIL_SMTP_PASSWORD", "pto2phil");
-define("EMAIL_SMTP_PORT", 2525); //   465
+define("EMAIL_SMTP_PORT", 465); //   465
 define("EMAIL_SMTP_ENCRYPTION", "ssl");
 
 

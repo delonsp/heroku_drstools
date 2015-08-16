@@ -37,7 +37,7 @@ if(isset($_POST['receitas2']) && !empty($_POST['receitas2'])) {
 		$mail->SMTPDebug = 1;
 		$mail->IsSMTP();                                      // Set mailer to use SMTP
 		$mail->Host     = "ssl://smtpcorp.com";
-		$mail->Port     = 2525;
+		$mail->Port     = 465;
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
 		$mail->Username = 'alain.dutra@gmail.com';                            // SMTP username
 		$mail->Password = 'pto2phil';                           // SMTP password
