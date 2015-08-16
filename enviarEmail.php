@@ -105,7 +105,7 @@ if(isset($_POST['receitas2']) && !empty($_POST['receitas2'])) {
 	  	  echo "<div class='alert alert-danger'>";
 		  echo "Mensagem não enviada<br>";
 		  echo "Favor checar sua conexão de Internet.<br>";
-		  echo "Mensagem de erro: " . $e->ErrorMessage() . "SESSION = ".$_SESSION;
+		  echo "Mensagem de erro: " . $e->ErrorMessage() . "SESSION = ".print_r($_SESSION);
 		  echo "<br><br><button class='btn btn-danger' title='Reenviar' alt='Reenviar' onclick='location.reload(true);'>Reenviar email</button>"; 
 		  echo "<br><br><a href='medicamentos.php' class='btn btn-success' title='Retornar' alt='Retornar'>Retornar</a>"; 
 		  echo "</div>";
