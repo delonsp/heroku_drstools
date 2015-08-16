@@ -44,19 +44,19 @@ $userEmail = $_SESSION['user_email'];
                             $intermedica = "intermedica";
 
                             if(isset($_SESSION['local'])) {
-                                $local = mysql_real_escape_string($_SESSION['local']);
+                                $local = $_SESSION['local'];
                             } else {
                                 $local = $soler;
                             }
 
                             if(isset($_SESSION['nome'])) {
-                                $nome = mysql_real_escape_string($_SESSION['nome']);
+                                $nome = $_SESSION['nome'];
                             } else {
                                 $nome = NULL;
                             }
 
                             if(isset($_SESSION['convenio'])) {
-                                $convenio = mysql_real_escape_string($_SESSION['convenio']);
+                                $convenio = $_SESSION['convenio'];
                             } else {
                                 $convenio = $intermedica;
                             }
