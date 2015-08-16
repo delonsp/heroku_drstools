@@ -10,7 +10,7 @@
 define("MESSAGE_ACCOUNT_NOT_ACTIVATED", "Sua conta ainda não está ativada. Por favor clique o link de confirmação no seu email.");
 define("MESSAGE_CAPTCHA_WRONG", "Captcha está errado!");
 define("MESSAGE_COOKIE_INVALID", "Cookie inválido");
-define("MESSAGE_DATABASE_ERROR", "Problem de conexão com o banco de dados.");
+define("MESSAGE_DATABASE_ERROR", "Problema de conexão com o banco de dados.");
 define("MESSAGE_EMAIL_ALREADY_EXISTS", "Este endereço de email já está registrado. Por favor use a página de \"Esqueci minha senha\" se você não se lembra dela.");
 define("MESSAGE_EMAIL_CHANGE_FAILED", "Desculpe, sua mudança de email falhou.");
 define("MESSAGE_EMAIL_CHANGED_SUCCESSFULLY", "O seu endereço de email foi modificado com sucesso. O novo email é ");
