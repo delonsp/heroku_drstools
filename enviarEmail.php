@@ -68,6 +68,8 @@ if(isset($_POST['receitas2']) && !empty($_POST['receitas2'])) {
 
 		}
 
+		echo "{$_SESSION['user_email']}";
+
 
 		$mail->AddReplyTo($_SESSION['user_email'], 'reply');
 		$texto = nl2br($_POST['receitas2']);
