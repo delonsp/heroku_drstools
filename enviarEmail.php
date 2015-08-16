@@ -36,7 +36,7 @@ if(isset($_POST['receitas2']) && !empty($_POST['receitas2'])) {
 		$mail->CharSet="UTF-8";
 		$mail->SMTPDebug = 1;
 		$mail->IsSMTP();                                      // Set mailer to use SMTP
-		$mail->Host     = "ssl://smtpcorp.com";
+		$mail->Host     = "smtpcorp.com";
 		$mail->Port     = 465;
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
 		$mail->Username = 'alain.dutra@gmail.com';                            // SMTP username
