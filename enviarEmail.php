@@ -34,7 +34,7 @@ if(isset($_POST['receitas2']) && !empty($_POST['receitas2'])) {
 	try {
 
 		$mail->CharSet="UTF-8";
-
+		$mail->SMTPDebug = 1;
 		$mail->IsSMTP();                                      // Set mailer to use SMTP
 		$mail->Host     = "ssl://smtpcorp.com";
 		$mail->Port     = 2525;

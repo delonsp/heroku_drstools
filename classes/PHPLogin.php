@@ -230,7 +230,7 @@ class PHPLogin
             require_once(__DIR__ .'/../libraries/SMTP.php');
             // Set mailer to use SMTP
             $mail->IsSMTP();
-            //$mail->SMTPDebug = 1;
+            $mail->SMTPDebug = 1;
             //useful for debugging, shows full SMTP errors
             //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
             // Enable SMTP authentication
