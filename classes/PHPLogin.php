@@ -145,12 +145,12 @@ class PHPLogin
                 // @see http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers#Connecting_to_MySQL says:
                 // "Adding the charset to the DSN is very important for security reasons"
                 $this->db_connection = new PDO('mysql:host='. DB_HOST .';dbname='. DB_NAME . ';charset=utf8', DB_USER, DB_PASS,
-                    array(PDO::MYSQL_ATTR_SSL_KEY => 'b19eb6acaf07d4-key.pem',
-                                        PDO::MYSQL_ATTR_SSL_CERT => 'b19eb6acaf07d4-cert.pem',
-                                        PDO::MYSQL_ATTR_SSL_CA => 'cleardb-ca.pem'));
+                     array(PDO::MYSQL_ATTR_SSL_KEY => 'app/b19eb6acaf07d4-key.pem',
+                                        PDO::MYSQL_ATTR_SSL_CERT => 'app/b19eb6acaf07d4-cert.pem',
+                                        PDO::MYSQL_ATTR_SSL_CA => 'app/cleardb-ca.pem'));
                 return true;
             } catch (PDOException $e) {
-                $this->errors[] = MESSAGE_DATABASE_ERROR . __DIR__.'/../cleardb-ca.pem';
+                $this->errors[] = MESSAGE_DATABASE_ERROR . $e->getMessage();
             }
         }
         // default return
