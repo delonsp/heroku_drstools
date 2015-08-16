@@ -1,4 +1,9 @@
-<?php 
+<?php
+include_once("debugger/ChromePhp.php");
+ChromePhp::log(DB_HOST);
+ChromePhp::log(DB_NAME);
+ChromePhp::log(DB_USER);
+ChromePhp::log(DB_PASS); 
     
     $pageTitle="login";
 
