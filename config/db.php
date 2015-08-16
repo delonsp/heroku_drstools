@@ -20,9 +20,7 @@ define("DB_HOST", $cleardb_url["host"]);
 define("DB_NAME", substr($cleardb_url["path"], 1));
 define("DB_USER", $cleardb_url["user"]);
 define("DB_PASS", $cleardb_url["pass"]);
-define("DB_CA", getenv("CLEARDB_CA"));
-define("DB_CERT_KEY", getenv("CERT_KEY"));
-define("DB_CERT_PEM", getenv("CERT_PEM"));
+
 
 // certificados
 
