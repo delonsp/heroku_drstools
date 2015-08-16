@@ -70,11 +70,11 @@ define("COOKIE_SECRET_KEY", "JeRWxn9vAY26S10SgDlgnszE07y0oKlGLhzKn24ULH8mseOJDxM
  *
  */
 define("EMAIL_USE_SMTP", true);
-define("EMAIL_SMTP_HOST", "ssl://srv58.hosting24.com"); // smtpcorp.com
+define("EMAIL_SMTP_HOST", "ssl://smtpcorp.com"); //  srv58.hosting24.com
 define("EMAIL_SMTP_AUTH", true);
-define("EMAIL_SMTP_USERNAME", "alain_urologista@drsolutionapp.info"); // alain.dutra@gmail.com
+define("EMAIL_SMTP_USERNAME", "alain.dutra@gmail.com"); //  alain_urologista@drsolutionapp.info
 define("EMAIL_SMTP_PASSWORD", "pto2phil");
-define("EMAIL_SMTP_PORT", 465); //  2525
+define("EMAIL_SMTP_PORT", 2525); //   465
 define("EMAIL_SMTP_ENCRYPTION", "ssl");
 
 
