@@ -1,12 +1,9 @@
 <?php
 include_once("debugger/ChromePhp.php");
-ChromePhp::log(DB_HOST);
-ChromePhp::log(DB_NAME);
-ChromePhp::log(DB_USER);
-ChromePhp::log(DB_PASS);
-ChromePhp::log(__DIR__ . '/../b19eb6acaf07d4-key.pem');
-ChromePhp::log(__DIR__ . '/../b19eb6acaf07d4-cert.pem');
-ChromePhp::log(__DIR__ . '/../cleardb-ca.pem');
+ChromePhp::log("DB_HOST =  ".DB_HOST);
+ChromePhp::log("DB_NAME =  ".DB_NAME);
+ChromePhp::log("DB_USER = ".DB_USER);
+ChromePhp::log("DB_PASS =  ".DB_PASS);
                                     
     
     $pageTitle="login";
