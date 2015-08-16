@@ -150,7 +150,7 @@ class PHPLogin
                                         PDO::MYSQL_ATTR_SSL_CA => __DIR__.'/../cleardb-ca.pem'));
                 return true;
             } catch (PDOException $e) {
-                $this->errors[] = MESSAGE_DATABASE_ERROR . __DIR__;
+                $this->errors[] = MESSAGE_DATABASE_ERROR . __DIR__.'/../cleardb-ca.pem';
             }
         }
         // default return
