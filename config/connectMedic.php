@@ -47,7 +47,7 @@ function connect() {
 
 	
 	$con = mysqli_init();
-	mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);
+	//mysqli_ssl_set($con, $cert_key, $cert_pem, $cleardb_ca, null, null);
 	mysqli_real_connect($con, $cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die(mysqli_connect_error($con));	
 	mysqli_set_charset($con,'utf8');
 	return $con;
