@@ -28,9 +28,10 @@ function runUpdateAjax(id) {
 
         $('#gravarBtn').removeClass('btn-success').addClass('btn-warning').val("Gravar Mudanças");
         $('#gravarBtn').addClass('update-btn').removeClass('save-btn');
-        
+
         doNotShowSecondForm = false;
         $('#myModal').modal('hide');
+        
 
 
     })
@@ -94,6 +95,7 @@ $('#envioBtn').click(function(event) { // busca de principio ativo
         
         $('.btn_edit').on('click', function(event) {
             event.preventDefault();
+            alert("this.id = " + this.id);
             runUpdateAjax(this.id);
         });
         
