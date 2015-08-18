@@ -1,8 +1,6 @@
 var doNotShowSecondForm = true;
 var data_exame = {};
 
-// Desculpe substitui none
-// Dados inválidos
 
 var url = "DataHandler.php";
 

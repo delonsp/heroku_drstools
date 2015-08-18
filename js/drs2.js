@@ -1,8 +1,6 @@
 var doNotShowSecondForm = true;
 var data_receita = {};
 
-// Desculpe substitui none
-// Dados inválidos
 
 var url = "DataHandler.php";
 
