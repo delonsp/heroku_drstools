@@ -110,14 +110,18 @@ $('#envioBtn').click(function(event) { // busca de nomeDoExame ativo
 $('#mostraFormBtn').click(function(event) { // esconde formulario de nomeDoExame e mostra formulario para dar entrada com medicamento
     doNotShowSecondForm = false;
     $('#myModal').modal('hide');
-    $('form2').find("input[type=text], textarea").val("");
+    $('#nomeDaDoenca').val("");
+    $('#nomeDaReceita').val("");
+    $('#textoReceita').val("");
   
 });
 
 $('#salvarDireto').click(function(event) {
     event.preventDefault();
     $('#firstFormRow').hide();
-    $('form2').find("input[type=text], textarea").val("");
+    $('#nomeDaDoenca').val("");
+    $('#nomeDaReceita').val("");
+    $('#textoReceita').val("");
     $('#secondFormRow').removeClass('hidden');
 
 });
