@@ -16,6 +16,8 @@
     $_SESSION['config_pharma'] = $retrieveUserConfig->config_pharma;
     $_SESSION['locais'] = $retrieveUserPlaces->nosocomios;
     $_SESSION['array_pharmas'] = $retrievePharmaConfig->array_pharmas;
+    include_once("debugger/ChromePhp.php");
+    ChromePhp::log($_SESSION['array_pharmas']);
 
     
     if ((!$retrieveUserConfig->messages || !$retrieveUserPlaces->messages || 
