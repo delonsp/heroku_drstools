@@ -18,6 +18,7 @@
     $_SESSION['array_pharmas'] = $retrievePharmaConfig->array_pharmas;
     include_once("debugger/ChromePhp.php");
     ChromePhp::log($_SESSION['array_pharmas']);
+    ChromePhp::log($_SESSION['config_pharma']);
 
     
     if ((!$retrieveUserConfig->messages || !$retrieveUserPlaces->messages || 
