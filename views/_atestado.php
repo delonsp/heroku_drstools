@@ -34,9 +34,9 @@ $userID = $_SESSION['user_id'];
                             <label class="control-label col-sm-4" for="nomeDoPaciente">Nome do Paciente:</label>
                             <div class="col-sm-8">
                                 <?php if ($nome) { ?>
-                                    <input type="text" class="form-control" id="nomeDoPaciente" value="<?php echo $nome ?>" size="30" name="nomeDoPaciente" >
+                                    <input type="text" class="form-control" id="nomeDoPaciente" value="<?php echo $nome ?>" size="30" name="nomeDoPaciente" minlength="5" required>
                                 <?php } else { ?>
-                                    <input type="text" class="form-control" id="nomeDoPaciente" esize="30" name="nomeDoPaciente" >
+                                    <input type="text" class="form-control" id="nomeDoPaciente" esize="30" name="nomeDoPaciente" minlength="5" required>
                                 <?php } ?>
                             </div>
                         </div>
@@ -115,6 +115,27 @@ $userID = $_SESSION['user_id'];
         	</div>
     	</div>
     </div>
+    <script type="text/javascript">
+
+        $('#form').validate({ // initialize the plugin
+            rules: {
+                nomeDoPaciente: {
+                    required: true,
+                    minlength: 5
+                },
+                nomeClinica: {
+                    required: true,
+                },
+                tipoAtestado: {
+                    required: true
+                }
+                
+            }
+        });
+
+
+
+    </script>
     <?php include_once("views/_footer.php"); ?>
 
  

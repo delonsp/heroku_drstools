@@ -38,7 +38,7 @@ $userEmail = $_SESSION['user_email'];
                         <div class="col-sm-8">
                             <select data-dropup-auto="false" 
                             multiple data-selected-text-format="count>2" id="listaExames" class="selectpicker form-control" 
-                                title='Selecione um ou mais itens' name="listaExames[]" size="10">
+                                title='Selecione um ou mais itens' name="listaExames[]" size="10" required>
                     
                             <?php
                             
@@ -87,7 +87,7 @@ $userEmail = $_SESSION['user_email'];
 
                             <?php } else { ?>
 
-                            <input type="text" class="form-control" id="nomeDoPaciente" size="30" name="nomeDoPaciente" placeholder="obrigatório"/>
+                            <input type="text" class="form-control" id="nomeDoPaciente" size="30" name="nomeDoPaciente" placeholder="obrigatório" required/>
 
                             <?php  } ?>
                         </div><!-- fecha controls text nomeDoPaciente-->
@@ -95,7 +95,7 @@ $userEmail = $_SESSION['user_email'];
                     <div class="form-group">
                         <label for="nomeConvenio" class="control-label col-sm-4">Convenio:</label>
                         <div class="col-sm-8">
-                            <select id="nomeConvenio" data-dropup-auto="false" class="selectpicker form-control" name="nomeConvenio" size="5">
+                            <select id="nomeConvenio" data-dropup-auto="false" class="selectpicker form-control" name="nomeConvenio" id="nomeConvenio" size="5" required>
                                 <?php
                                     $con = connect();
                                     $tabela ='logosConvenios';
@@ -125,7 +125,7 @@ $userEmail = $_SESSION['user_email'];
                     <div class="form-group">
                         <label for="clinica" class="control-label col-sm-4">Clínica:</label>
                         <div class="col-sm-8">
-                            <select id="nomeClinica" size="5" class="selectpicker form-control" name="nomeClinica" >
+                            <select id="nomeClinica" size="5" class="selectpicker form-control" name="nomeClinica" id="nomeClinica" required>
                             <?php
                     
                                 $query = "SELECT nosocomios.local
@@ -255,6 +255,30 @@ $userEmail = $_SESSION['user_email'];
         
         </div>
     </div>
+
+    <script>
+
+         $('#form1').validate({ // initialize the plugin
+            rules: {
+                nomeDoPaciente: {
+                    required: true,
+                    minlength: 5
+                },
+                nomeConvenio: {
+                    required: true,
+                },
+                nomeClinica: {
+                    required: true,
+                },
+                listaExames: {
+                    required: true
+                }
+                
+            }
+        });
+
+
+    </script>
     
 	<?php include_once("views/_footer.php"); ?>
 

@@ -1,5 +1,6 @@
 <?php 
- session_start();  
+ session_start();
+ include("localizador/class.ipdetails.php");  
 
  ?>
 
@@ -96,7 +97,12 @@
                 setlocale(LC_ALL, "pt_BR.utf-8","pt_BR", "portuguese_Brazil");
                 $date_string = strftime('%d de %B de %Y');
                 if($_POST['colocar_data']) {
-                    echo htmlEntities("São Paulo, $date_string ");
+                    $ip = $_SERVER['REMOTE_ADDR'];
+                    $ipdetails = new ipdetails($ip); 
+                    $ipdetails->scan();
+                    $city = $ipdetails->get_city();
+                    $city = (isset($city) ? $city."," : "");
+                    echo "<b>".htmlEntities("$city $date_string")."</b>";
                 }
                 ?>
         </div>

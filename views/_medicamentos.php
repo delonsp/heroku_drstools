@@ -83,32 +83,32 @@ $userID = $_SESSION['user_id'];
                         <label class="control-label col-sm-4" for="nomeDoPaciente">Nome do paciente:</label>
                         <div class="col-sm-8">
                                                             
-                            <input type="text" class="form-control" id="nomeDoPaciente" name="nomeDoPaciente" value="<?php echo $nome; ?>"/>
+                            <input type="text" class="form-control" id="nomeDoPaciente" name="nomeDoPaciente" value="<?php echo $nome; ?>" required/>
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="endDoPaciente">Endereço:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="endDoPaciente"  name="endDoPaciente" value="<?php echo $end_paciente; ?>">
+                            <input type="text" class="form-control" id="endDoPaciente"  name="endDoPaciente" value="<?php echo $end_paciente; ?>" placeholder="opcional">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="telsDoPaciente">Telefones:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="telsDoPaciente" name="telsDoPaciente" size="30" value="<?php echo $tels; ?>" >
+                            <input type="text" class="form-control" id="telsDoPaciente" name="telsDoPaciente" size="30" value="<?php echo $tels; ?>" placeholder="opcional" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-4" for="emailDoPaciente">Email:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="emailDoPaciente" name="emailDoPaciente" value="<?php echo $email_paciente; ?>" >
+                            <input type="text" class="form-control" id="emailDoPaciente" name="emailDoPaciente" value="<?php echo $email_paciente; ?>" placeholder="opcional" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="clinica" class="control-label col-sm-4">Clínica:</label>
                         <div class="col-sm-8">
-                            <select id="nomeClinica" class="selectpicker form-control" name="nomeClinica" size="5">
+                            <select id="nomeClinica" class="selectpicker form-control" name="nomeClinica" size="5" required>
                             <?php
                                 $con=connect();
 
@@ -291,6 +291,27 @@ $userID = $_SESSION['user_id'];
              </div>
         </div>
     </div>
+
+    <script>
+
+         $('#form1').validate({ // initialize the plugin
+            rules: {
+                nomeDoPaciente: {
+                    required: true,
+                    minlength: 5
+                },
+                nomeClinica: {
+                    required: true,
+                },
+                listaMedic: {
+                    required: true
+                }
+                
+            }
+        });
+
+
+    </script>
 
 <?php include_once('views/_footer.php'); ?>
 
