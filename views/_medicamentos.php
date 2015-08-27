@@ -282,8 +282,9 @@ $userID = $_SESSION['user_id'];
 
                     <?php  } else // closes the if(...)
                     
-                        echo '<div class="alert alert-info">Não se esqueça de preencher todos os campos ao lado e clicar enviar.<br>
-                        Se houver interesse em mandar email para alguma farmácia, insira também os telefones de contato.</div>';
+                        echo '<div class="alert alert-info">Não se esqueça de preencher os campos ao lado e clicar enviar.<br>
+                        Os campos telefones, Endereço e email são opcionais.<br>
+                        Se houver interesse em mandar email para alguma farmácia, insira os telefones de contato.</div>';
                       
                     ?>
                     
