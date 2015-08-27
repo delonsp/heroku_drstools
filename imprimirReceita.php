@@ -96,8 +96,12 @@
                 setlocale(LC_ALL, "pt_BR.utf-8","pt_BR", "portuguese_Brazil");
                 $date_string = strftime('%d de %B de %Y');
                 if($_POST['colocar_data']) {
-                    
-                    echo "<b>".htmlEntities("$date_string")."</b>";
+                    if ($_SESSION['cidade']) {
+                        $city = $_SESSION['cidade'].", ";
+                    } else {
+                        $city = "";
+                    }
+                    echo "<b>".htmlEntities("$city $date_string")."</b>";
                 }
                 ?>
         </div>

@@ -44,7 +44,7 @@ $userID = $_SESSION['user_id'];
                         <div class="col-sm-8">
                             <select data-dropup-auto="false" 
                             multiple data-selected-text-format="count>2" id="listaMedic" class="selectpicker form-control" 
-                                title='Selecione um ou mais itens' name="listaMedic[]" size="10">
+                                title='Selecione um ou mais itens' name="listaMedic" size="10">
                             <?php
 
                             $local = (isset($_POST['nomeClinica']) ? $_POST['nomeClinica'] : $_SESSION['local']);
@@ -83,7 +83,7 @@ $userID = $_SESSION['user_id'];
                         <label class="control-label col-sm-4" for="nomeDoPaciente">Nome do paciente:</label>
                         <div class="col-sm-8">
                                                             
-                            <input type="text" class="form-control" id="nomeDoPaciente" name="nomeDoPaciente" value="<?php echo $nome; ?>" required/>
+                            <input type="text" class="form-control" id="nomeDoPaciente" name="nomeDoPaciente" value="<?php echo $nome; ?>" required placeholder="obrigatório"/>
 
                         </div>
                     </div>
@@ -108,7 +108,7 @@ $userID = $_SESSION['user_id'];
                     <div class="form-group">
                         <label for="clinica" class="control-label col-sm-4">Clínica:</label>
                         <div class="col-sm-8">
-                            <select id="nomeClinica" class="selectpicker form-control" name="nomeClinica" size="5" required>
+                            <select id="nomeClinica" class="selectpicker form-control" name="nomeClinica" size="5">
                             <?php
                                 $con=connect();
 
@@ -283,7 +283,7 @@ $userID = $_SESSION['user_id'];
                     <?php  } else // closes the if(...)
                     
                         echo '<div class="alert alert-info">Não se esqueça de preencher os campos ao lado e clicar enviar.<br>
-                        Os campos telefones, Endereço e email são opcionais.<br>
+                        Os campos telefones, endereço e email são opcionais.<br>
                         Se houver interesse em mandar email para alguma farmácia, insira os telefones de contato.</div>';
                       
                     ?>
@@ -292,10 +292,11 @@ $userID = $_SESSION['user_id'];
              </div>
         </div>
     </div>
-
+    <script src="js/geolocator.js"></script>
     <script>
 
          $('#form1').validate({ // initialize the plugin
+            ignore: [],
             rules: {
                 nomeDoPaciente: {
                     required: true,
@@ -308,7 +309,24 @@ $userID = $_SESSION['user_id'];
                     required: true
                 }
                 
-            }
+            },
+            messages: {
+                nomeDoPaciente: {
+                    required: "Por favor coloque o nome do paciente",
+                    minlength: "Coloque um nome válido"
+                },
+                nomeClinica: "Por favor escolha um local de atendimento",
+                listaMedic: "Por favor escolha um ou mais medicamentos"
+            },
+            errorPlacement: function(error, element) {
+                if (element.attr("name") == "listaMedic") {
+                    error.insertAfter(".bootstrap-select:first");
+                } else if (element.attr("name") == "nomeClinica") {
+                    error.insertAfter(".bootstrap-select:eq(1)");
+                } else {
+                  error.insertAfter(element);
+                }
+            },
         });
 
 

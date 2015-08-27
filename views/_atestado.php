@@ -131,7 +131,15 @@ $userID = $_SESSION['user_id'];
                     required: true
                 }
                 
-            }
+            },
+            messages: {
+                nomeDoPaciente: {
+                    required: "Por favor coloque o nome do paciente",
+                    minlength: "Coloque um nome válido"
+                },
+                nomeClinica: "Por favor escolha um local de atendimento",
+                tipoAtestado: "Por favor escolha um tipo de atestado"
+            },
         });
 
 
