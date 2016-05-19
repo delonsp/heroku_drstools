@@ -89,6 +89,8 @@
         ?>
 
         <div id="signature">
+            
+                <img src="img/carimbo.png">
                 <hr/>
                 
                 <?php
