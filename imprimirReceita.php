@@ -90,7 +90,7 @@
 
         <div id="signature">
             
-                <img src="img/carimbo.png" height="100" width="250">
+                <img src="img/carimbo.png" height="75" width="150">
                 <hr/>
                 
                 <?php
