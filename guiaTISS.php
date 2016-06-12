@@ -1366,7 +1366,8 @@ REALIZADOS</TD></TR></TBODY></TABLE>
 
               <TBODY>
 
-              <TR>
+              <TR><img src="img/carimbo.png" height="120" width="200">
+                <hr/>
 
                 <TD class="Borda4 Arial6Topo" width="25%" height=0>86 - Data e 
 
