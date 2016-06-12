@@ -125,7 +125,9 @@ session_start();
         </div>
 
         <div id="signature">
-
+			<img src="img/carimbo.png" height="120" width="200">
+        	<hr/>
+        	Carimbo e Assinatura do Médico
         	<?php
         		if ($_SESSION['cidade']) {
                         $city = $_SESSION['cidade'].", ";
@@ -135,9 +137,7 @@ session_start();
 		        echo "<b>".htmlEntities("$city $date_string")."</b>";
 			?>
         	<br><br><br><br><br>
-        	<img src="img/carimbo.png" height="120" width="200">
-        	<hr/>
-        	Carimbo e Assinatura do Médico
+
 			
         </div>
        
